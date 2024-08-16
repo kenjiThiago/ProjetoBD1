@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+
+    --primary-background-color: #181818;
+    --primary-header-color: #101010;
+    --primary-card-color: #202020;
+    --primary-footer-color: #101010;
+
+    --primary-text-color: white;
+}

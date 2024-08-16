@@ -1,0 +1,137 @@
+body {
+    font-size: 1.6rem;
+
+    background-color: var(--primary-background-color);
+}
+
+#app {
+    display: grid;
+    grid-template-areas:
+    "header header"
+    "main   main"
+    "cards  cards"
+    "footer footer";
+}
+
+#header-wrapper, #footer-wrapper {
+    max-width: 150rem;
+    margin-inline: auto;
+
+    text-align: center;
+
+    color: var(--primary-text-color);
+}
+
+header.container {
+    background-color: var(--primary-header-color);
+
+    padding: 1rem 10rem;
+
+    grid-area: header;
+}
+
+#header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#title {
+    display: flex;
+    align-items: center;
+}
+
+#title img {
+    margin-right: 1rem;
+}
+
+#links a {
+    text-decoration: none;
+}
+
+#links a + a {
+    margin-left: 1rem;
+}
+
+main {
+    padding: 0 10rem;
+
+    text-align: center;
+    margin-inline: auto;
+    margin-top: 5rem;
+
+    grid-area: main;
+}
+
+#main-title {
+    max-width: 110rem;
+    margin: auto;
+}
+
+main h1 {
+    color: var(--primary-text-color);
+}
+
+main .rose {
+    color: #FA5AA4;
+}
+
+main .blueviolet {
+    color: blueviolet;
+}
+
+main p {
+    color: var(--primary-text-color);
+}
+
+main p:nth-child(2) {
+    margin-top: 3rem;
+}
+
+#cards {
+    max-width: 110rem;
+
+    margin: 10rem auto;
+
+    overflow-x: scroll;
+
+    grid-area: cards;
+    
+    color: var(--primary-text-color);
+}
+
+#cards-wrapper {
+    width: 110%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 1.5rem;
+}
+
+.card-wrapper {
+    max-width: 43rem;
+    background-color: var(--primary-card-color);
+
+    border-radius: 2rem;
+    padding: 2.3rem;
+
+    text-align: left;
+}
+
+.card-wrapper h2 {
+    margin: 2rem 0 1rem;
+}
+
+footer {
+    background-color: var(--primary-footer-color);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    grid-area: footer;
+    padding: 2rem;
+}
