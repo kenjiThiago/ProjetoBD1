@@ -16,6 +16,11 @@ main {
     transform: translateY(-50px);
 }
 
+main a {
+    display: block;
+    margin-bottom: 4rem;
+}
+
 #logo {
     display: flex;
     justify-content: left;
