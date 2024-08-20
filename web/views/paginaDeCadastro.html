@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Página de Cadastro</title>
+
+        <link rel="stylesheet" href="../styles/main.css" />
+        <link rel="stylesheet" href="../styles/paginaDeCadastro.css" />
+        <link rel="stylesheet" href="../styles/partials/form.css" />
+        <link rel="stylesheet" href="../styles/partials/animations.css" />
+    </head>
+
+    <body>
+        <div id="app">
+            <header id="page-header">
+                <div id="top-bar-container">
+                    <a href="./paginaInicial.html">
+                        <img src="../assets/back.svg" />
+                    </a>
+
+                    <div id="logo">
+                        <img src="../assets/planet1.png" />
+                        <p>Nome da Marca</p>
+                    </div>
+                </div>
+
+                <div id="header-content">
+                    <strong>Faça o seu Login</strong>
+
+                    <p>O primeiro passo é preencher o formulário de cadastro</p>
+                </div>
+            </header>
+
+            <main>
+                <form id="register-form">
+                    <fieldset>
+                        <legend>Seus dados</legend>
+
+                        <div class="input-wrapper">
+                            <label for="name">Nome Completo</label>
+                            <input name="name"id="name" placeholder="Digite seu Nome Completo" required />
+                        </div>
+
+                        <div class="input-wrapper">
+                            <label for="email">Email</label>
+                            <input name="email"id="email" type="email" placeholder="Digite seu Email" required />
+                        </div>
+
+                        <div class="input-wrapper">
+                            <label for="password">Senha</label>
+                            <input name="password"id="password" type="password" placeholder="Digite sua Senha" required />
+                        </div>
+
+                        <div class="input-wrapper">
+                            <label for="password">Confime a sua Senha</label>
+                            <input name="password"id="password" type="password" placeholder="Confirme sua Senha" required />
+                        </div>
+                    </fieldset>
+                </form>
+
+                <footer>
+                    <p>
+                        <img src="../assets/warning.svg" alt="aviso importante" />
+                        Importante!<br>Preencha todos os dados
+                    </p>
+                    <button type="submit" form="register-form">Salvar Cadastro</button>
+                </footer>
+            </main>
+        </div>
+    </body>
+</html>
