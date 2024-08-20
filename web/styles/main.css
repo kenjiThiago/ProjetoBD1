@@ -14,9 +14,13 @@
 
     --primary-footer-color: #101010;
 
+    --primary-input-color: #D9CFCF;
+
     --primary-button-color: green;
 
     --primary-text-color: white;
+
+    --color-line-in-white: #6D6D75;
 }
 
 body {
