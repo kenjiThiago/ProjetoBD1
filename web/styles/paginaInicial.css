@@ -31,12 +31,12 @@ header.container {
 
 }
 
-#title {
+#logo {
     display: flex;
     align-items: center;
 }
 
-#title img {
+#logo img {
     margin-right: 1rem;
 }
 

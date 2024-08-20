@@ -16,7 +16,7 @@ main {
     transform: translateY(-50px);
 }
 
-#title {
+#logo {
     display: flex;
     justify-content: left;
     align-items: center;
@@ -24,6 +24,6 @@ main {
     margin-bottom: 6.4rem;
 }
 
-#title img {
+#logo img {
     margin-right: 2rem;
 }
