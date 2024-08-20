@@ -8,9 +8,20 @@
     font-size: 62.5%;
 
     --primary-background-color: #181818;
+    --secondary-background-color: #202020;
+
     --primary-header-color: #101010;
-    --primary-card-color: #202020;
+
     --primary-footer-color: #101010;
 
+    --primary-button-color: green;
+
     --primary-text-color: white;
+}
+
+body {
+    font-size: 1.6rem;
+
+    background-color: var(--primary-background-color);
+    color: var(--primary-text-color);
 }
