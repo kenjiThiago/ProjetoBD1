@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64; rv:132.0) Gecko/20100101 Firefox/132.0" version="24.8.3">
   <diagram name="Página-1" id="9vREBXogpgw-cOhk3eHp">
-    <mxGraphModel dx="3027" dy="2283" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="4005" dy="2778" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -65,7 +65,7 @@
           <mxGeometry x="830" y="270" width="10" height="60" as="geometry" />
         </mxCell>
         <mxCell id="1xZOdAHlnj8blG5HcDeI-42" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1240" y="200" width="620" height="60" as="geometry" />
+          <mxGeometry x="1240" y="200" width="370" height="60" as="geometry" />
         </mxCell>
         <mxCell id="1xZOdAHlnj8blG5HcDeI-43" value="&lt;font face=&quot;Verdana&quot; style=&quot;font-size: 24px;&quot;&gt;Professor&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="1270" y="170" width="60" height="30" as="geometry" />
@@ -79,17 +79,11 @@
         <mxCell id="1xZOdAHlnj8blG5HcDeI-48" value="&lt;font face=&quot;Verdana&quot; style=&quot;font-size: 24px;&quot;&gt;especialização&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="1470" y="215" width="100" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="1xZOdAHlnj8blG5HcDeI-49" value="&lt;font face=&quot;Verdana&quot; style=&quot;font-size: 24px;&quot;&gt;cursos_ministrados&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="1690" y="215" width="100" height="30" as="geometry" />
-        </mxCell>
         <mxCell id="1xZOdAHlnj8blG5HcDeI-51" value="" style="line;strokeWidth=2;direction=south;html=1;" parent="1" vertex="1">
           <mxGeometry x="1330" y="200" width="10" height="60" as="geometry" />
         </mxCell>
         <mxCell id="1xZOdAHlnj8blG5HcDeI-52" value="" style="line;strokeWidth=2;direction=south;html=1;" parent="1" vertex="1">
           <mxGeometry x="1420" y="200" width="10" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="1xZOdAHlnj8blG5HcDeI-53" value="" style="line;strokeWidth=2;direction=south;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1610" y="200" width="10" height="60" as="geometry" />
         </mxCell>
         <mxCell id="1xZOdAHlnj8blG5HcDeI-55" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="430" y="665" width="733" height="60" as="geometry" />
