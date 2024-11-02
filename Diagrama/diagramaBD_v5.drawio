@@ -28,7 +28,7 @@
             <mxPoint x="190" y="150" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="84Rggwo5Q6fRoOFXzcfN-9" value="ESTUDAM" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
+        <mxCell id="84Rggwo5Q6fRoOFXzcfN-9" value="ESTUDA" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
           <mxGeometry x="420" y="120" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="84Rggwo5Q6fRoOFXzcfN-10" value="" style="endArrow=none;html=1;rounded=0;" parent="1" source="84Rggwo5Q6fRoOFXzcfN-9" target="84Rggwo5Q6fRoOFXzcfN-1" edge="1">
@@ -84,7 +84,7 @@
             <mxPoint x="534" y="470" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="84Rggwo5Q6fRoOFXzcfN-22" value="MINISTRAM" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
+        <mxCell id="84Rggwo5Q6fRoOFXzcfN-22" value="MINISTRA" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
           <mxGeometry x="1030" y="120" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="84Rggwo5Q6fRoOFXzcfN-23" value="" style="endArrow=none;html=1;rounded=0;" parent="1" source="84Rggwo5Q6fRoOFXzcfN-22" target="84Rggwo5Q6fRoOFXzcfN-12" edge="1">
@@ -112,7 +112,7 @@
             <mxPoint x="-60" y="-10" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="84Rggwo5Q6fRoOFXzcfN-28" value="Nome" style="ellipse;whiteSpace=wrap;html=1;align=center;fontStyle=4;" parent="1" vertex="1">
+        <mxCell id="84Rggwo5Q6fRoOFXzcfN-28" value="Nome" style="ellipse;whiteSpace=wrap;html=1;align=center;fontStyle=0;" parent="1" vertex="1">
           <mxGeometry x="1470" y="130" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="84Rggwo5Q6fRoOFXzcfN-30" value="Especialização" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
@@ -298,7 +298,7 @@
         <mxCell id="84Rggwo5Q6fRoOFXzcfN-74" value="Descrição" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
           <mxGeometry x="350" y="440" width="100" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="84Rggwo5Q6fRoOFXzcfN-76" value="SE QUALIFICAM" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
+        <mxCell id="84Rggwo5Q6fRoOFXzcfN-76" value="SE QUALIFICA" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
           <mxGeometry x="190" y="260" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="84Rggwo5Q6fRoOFXzcfN-78" value="" style="endArrow=none;html=1;rounded=0;" parent="1" source="CaM7xlCMLQ7idXJdT8iR-9" target="84Rggwo5Q6fRoOFXzcfN-66" edge="1">
@@ -335,7 +335,7 @@
             <mxPoint y="-60" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="84Rggwo5Q6fRoOFXzcfN-84" value="Nome" style="ellipse;whiteSpace=wrap;html=1;align=center;fontStyle=4;" parent="1" vertex="1">
+        <mxCell id="84Rggwo5Q6fRoOFXzcfN-84" value="Nome" style="ellipse;whiteSpace=wrap;html=1;align=center;fontStyle=0;" parent="1" vertex="1">
           <mxGeometry x="100" y="200" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="84Rggwo5Q6fRoOFXzcfN-85" value="" style="endArrow=none;html=1;rounded=0;" parent="1" source="84Rggwo5Q6fRoOFXzcfN-12" target="84Rggwo5Q6fRoOFXzcfN-16" edge="1">
@@ -409,7 +409,7 @@
             <mxPoint x="308" y="109" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CaM7xlCMLQ7idXJdT8iR-3" value="OFERECEM" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
+        <mxCell id="CaM7xlCMLQ7idXJdT8iR-3" value="OFERECE" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
           <mxGeometry x="190" y="590" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="CaM7xlCMLQ7idXJdT8iR-4" value="" style="endArrow=none;html=1;rounded=0;" parent="1" source="84Rggwo5Q6fRoOFXzcfN-4" target="84Rggwo5Q6fRoOFXzcfN-1" edge="1">
