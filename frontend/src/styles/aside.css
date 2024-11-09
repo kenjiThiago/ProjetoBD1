@@ -25,7 +25,7 @@
     background-color: var(--primary-aside-color);
     border-top: 2px solid var(--primary-border-color);
 
-    transition: transform 500ms ease-out;
+    transition: all 500ms ease-out;
 
     display: flex;
     flex-direction: column;
@@ -81,6 +81,7 @@ aside img {
     left: 0;
 
     transform: translateX(-20rem);
+    visibility: hidden;
 
     height: calc(100vh - 6.1rem);
     width: 20rem;
