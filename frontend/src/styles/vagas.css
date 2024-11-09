@@ -1,0 +1,6 @@
+main {
+    grid-area: main;
+    color: var(--secondary-text-color);
+
+    padding: 2rem 8rem 0;
+}

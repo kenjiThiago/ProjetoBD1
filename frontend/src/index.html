@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="#" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página Principal</title>
+  </head>
+  <body>
+    <div id="app" class="expand">
+      <header>
+        <div id="header-wrapper">
+          <div id="menu-wrapper">
+            <img src="/assets/menu.svg" alt="" id="toggle-aside" />
+          </div>
+
+          <a href="/" id="logo">
+            <img src="/assets/logo.png" alt="Logo da Marca" />
+            <h2>Escola de Programação</h2>
+          </a>
+        </div>
+      </header>
+      <main>
+        <h1>Dashboard</h1>
+
+        <div class="content">
+          <div id="card-wrapper">
+            <div class="card">
+              <h2>Número de Vagas</h2>
+              <p><span>50</span> Vagas Disponíveis</p>
+            </div>
+            <div class="card">
+              <h2>Número de Cursos</h2>
+              <p><span>30</span> Cursos Disponíveis</p>
+            </div>
+            <div class="card">
+              <h2>Número de Alunos</h2>
+              <p><span>200</span> Alunos Cadastrados</p>
+            </div>
+            <div class="card">
+              <h2>Número de Empresas</h2>
+              <p><span>15</span> Empresas Parceiras</p>
+            </div>
+          </div>
+          <div class="card" id="graph">
+            <h2>Status dos Alunos</h2>
+            <div id="graph-wrapper">
+              <canvas id="acquisitions"></canvas>
+            </div>
+          </div>
+        </div>
+      </main>
+      <aside class="hide">
+        <img src="/assets/logo.png" alt="Logo da Marca" />
+        <a href="/" class="active">
+          <img src="/assets/inicio.svg" alt="">
+          <span>Inicio</span>
+        </a>
+        <a href="/vagas/">
+          <img src="/assets/vagas.svg" alt="">
+          <span>Vagas</span>
+        </a>
+        <a href="#">
+          <img src="/assets/cursos.svg" alt="">
+          <span>Cursos</span>
+        </a>
+        <a href="#">
+          <img src="/assets/empresas.svg" alt="">
+          <span>Empresas</span>
+        </a>
+        <a href="#">
+          <img src="/assets/alunos.svg" alt="">
+          <span>Alunos</span>
+        </a>
+      </aside>
+    </div>
+    <script type="module" src="/scripts/aside.js"></script>
+    <script type="module" src="/scripts/paginaInicial.js"></script>
+  </body>
+</html>

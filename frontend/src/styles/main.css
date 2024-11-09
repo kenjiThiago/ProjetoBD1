@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+
+    --primary-header-color: #0F1824;
+    --primary-background-color: #E6E6F0;
+    --primary-text-color: #FFFFFF;
+    --primary-aside-color: #0F1824;
+    --primary-border-color: #414142;
+    --primary-card-color: #FFFFFF;
+
+    --secondary-text-color: #222020;
+}
+
+body {
+    font-size: 1.6rem;
+
+    color: var(--primary-text-color);
+}
+
+#app {
+    display: grid;
+
+    grid-template-areas:
+    "header header"
+    "aside   main"
+    "aside   main";
+
+    grid-template-rows: 6.1rem 1fr;
+    grid-template-columns: 20rem 1fr;
+
+    min-height: 100vh;
+    background-color: var(--primary-background-color);
+}
+
+
+a {
+    text-decoration: none;
+    color: var(--primary-text-color);
+}

@@ -1,0 +1,87 @@
+#toggle-aside {
+    width: 40px;
+    height: 40px;
+
+    transition: rotate 500ms ease-in-out;
+}
+
+#toggle-aside.rotate {
+    rotate: 90deg;
+}
+
+#app.expand {
+    grid-template-areas:
+    "header header"
+    "main   main"
+    "main   main";
+}
+
+#app .active {
+    opacity: 1;
+}
+
+#app aside {
+    grid-area: aside;
+    background-color: var(--primary-aside-color);
+    border-top: 2px solid var(--primary-border-color);
+
+    transition: transform 500ms ease-out;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 7rem;
+
+    padding-top: 7rem;
+}
+
+aside img {
+    width: 60px;
+    height: 60px;
+
+    margin-right: 1rem;
+}
+
+#app aside a {
+    text-align: center;
+
+    font-weight: bold;
+
+    opacity: 0.5;
+
+    transition: opacity 200ms ease-in;
+
+    width: 100%;
+    height: 5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#app aside a span {
+    margin-bottom: -0.5rem;
+}
+
+#app aside a:hover {
+    opacity: 1;
+}
+
+#app aside a img {
+    width: 30px;
+    height: 30px;
+
+    margin-right: 1rem;
+}
+
+#app aside.hide {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    transform: translateX(-20rem);
+
+    height: calc(100vh - 6.1rem);
+    width: 20rem;
+}

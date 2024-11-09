@@ -1,0 +1,32 @@
+#app header {
+    background-color: var(--primary-header-color);
+    grid-area: header;
+
+    padding: 0 20rem 0 5rem;
+}
+
+#header-wrapper {
+    margin-inline: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    text-decoration: none;
+    color: var(--primary-text-color);
+
+    width: fit-content;
+}
+
+#logo img {
+    width: 60px;
+    height: 60px;
+
+    margin-right: 1rem;
+}

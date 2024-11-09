@@ -1,0 +1,66 @@
+#app main {
+    grid-area: main;
+
+    padding: 7rem 20rem 8rem;
+    color: var(--secondary-text-color);
+}
+
+#app main h1 {
+    margin-bottom: 8rem;
+}
+
+main .content {
+    display: grid;
+    height: 60%;
+
+    grid-template-areas:
+    "cards graph"
+    "cards graph";
+
+    gap: 4rem;
+    grid-template-columns: 1fr 1fr;
+}
+
+#card-wrapper {
+    grid-area: cards;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
+
+    gap: 4rem;
+}
+
+.card {
+    align-content: center;
+
+    border-radius: 10px;
+
+    background-color: var(--primary-card-color);
+
+    padding: 1rem 2rem;
+}
+
+.card p {
+    margin-top: 5rem;
+}
+
+.card p span {
+    color: green;
+
+    font-size: 4rem;
+}
+
+#graph {
+    grid-area: graph;
+}
+
+#graph h2 {
+    margin-bottom: 2rem;
+}
+
+#graph-wrapper {
+    width: 40rem;
+    margin: auto;
+}
