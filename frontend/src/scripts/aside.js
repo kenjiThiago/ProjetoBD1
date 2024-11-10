@@ -1,5 +1,7 @@
 import "../styles/aside.css"
 import "../styles/header.css"
+import menu from "../assets/menu.svg"
+import close from "../assets/close.svg"
 
 const img = document.querySelector("#toggle-aside")
 
@@ -17,8 +19,8 @@ aside.style.left = "0"
   img.classList.toggle("rotate")
 
   if (img.classList.contains("rotate")) {
-    img.src = "../assets/close.svg"
+    img.src = close
   } else {
-    img.src = "../assets/menu.svg"
+    img.src = menu
   }
 })
