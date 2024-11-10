@@ -1,4 +1,5 @@
 from flask import Flask, jsonify
+from flask_cors import CORS
 from Rotas.rota_aluno import aluno_blueprint
 from Rotas.rota_curso import curso_blueprint
 from Rotas.rota_empresa import empresa_blueprint
@@ -10,6 +11,7 @@ from Database.classe_empresa import Empresa
 from Database.classe_vaga import Vaga
 
 app = Flask(__name__)
+CORS(app, origins=["http://localhost:5173", "http://localhost:4173"])
 
 @app.route("/", methods=["GET"])
 
