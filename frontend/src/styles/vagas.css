@@ -1,33 +1,65 @@
-body {
-    overflow: hidden;
-}
-
 main {
     grid-area: main;
     color: var(--secondary-text-color);
 
-    padding: 2rem 8rem 0;
+    padding: 2rem 2rem 2rem 20rem;
+
+    position: relative;
 }
 
 main form {
-    margin-top: 3rem;
+    margin-top: 2rem;
+
+    display: flex;
+    align-items: center;
+
+    gap: 2rem;
+}
+
+main form span {
+    font-weight: bold;
+}
+
+main form button {
+    background-color: #f0a825;
+
+    border: none;
+    border-radius: 6px;
+
+    padding: 0.5rem 1rem;
+
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+main form input {
+    border: none;
+    border-radius: 6px;
+
+    padding: 1.1rem 1rem;
+}
+
+main form button img {
+    width: 3rem;
 }
 
 #table-wrapper {
-    max-height: 72%;
-    overflow: scroll;
-    border-radius: 8px 8px 0 0;
+    min-height: 82%;
+    max-width: 90%;
 
-    width: fit-content;
-
-    margin-top: 2rem;
-    border-bottom: 4px solid #1D2C45;
+    background-color: #FFFFFF;
 }
 
 #content {
+    border-radius: 8px 8px 0 0;
     border-collapse: collapse;
 
-    min-width: 90vw;
+    min-width: 100%;
+    margin-top: 1rem;
 
     overflow: hidden;
 }
@@ -37,14 +69,13 @@ main form {
     color: var(--primary-text-color);
 
     text-align: left;
-
-    position: sticky;
-    top: 0;
 }
 
 #content tbody tr {
     background-color: #FFFFFF;
     color: var(--secondary-text-color);
+
+    cursor: pointer;
 }
 
 #content tr:nth-child(2n) {
@@ -54,14 +85,55 @@ main form {
 #content th,
 #content td {
     padding: 2rem 1.5rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid #000000;
 
     transition: color, text-shadow 300ms;
-
-    cursor: pointer;
 }
 
 #content tbody tr:hover {
     text-shadow: 1px 0px 0px #E65A00;
     color: #E65A00;
+}
+
+#table-footer {
+    padding: 0.8rem 1.5rem;
+    background-color: #1D2C45;
+    color: var(--primary-text-color);
+
+    max-width: 90%;
+
+    border-radius: 0 0 8px 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: inherit;
+    bottom: 1px;
+}
+
+#pages {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#forward,
+#backward {
+    border: none;
+
+    width: 2rem;
+    height: 2rem;
+
+    cursor: pointer;
+}
+
+#forward {
+    background: url("/assets/arrow_forward.svg") center/cover no-repeat;
+}
+
+#backward {
+    background: url("/assets/arrow_back.svg") center/cover no-repeat;
+
+    margin-left: 1rem;
 }
