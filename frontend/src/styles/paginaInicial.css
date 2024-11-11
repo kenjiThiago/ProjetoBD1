@@ -1,15 +1,11 @@
 #app main {
     grid-area: main;
 
-    padding: 7rem 20rem 15rem;
+    padding: 7rem 12rem 10rem 20rem;
     color: var(--secondary-text-color);
 
     display: grid;
     align-content: center;
-}
-
-#app main h1 {
-    margin-bottom: 8rem;
 }
 
 main .content {
@@ -47,6 +43,7 @@ main .content {
 
 .card p {
     margin-top: 5rem;
+    font-size: 2rem;
 }
 
 .card p span {
@@ -55,16 +52,16 @@ main .content {
     font-size: 4rem;
 }
 
+#graph.card {
+    padding: 0;
+}
+
 #graph {
     grid-area: graph;
 }
 
-#graph h2 {
-    margin-bottom: 2rem;
-}
-
 #graph-wrapper {
-    width: 45rem;
-    height: 45rem;
-    margin: auto;
+    max-width: 60rem;
+    max-height: 60rem;
+    margin: -5rem auto -5rem;
 }
