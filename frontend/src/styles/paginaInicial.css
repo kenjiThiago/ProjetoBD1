@@ -1,8 +1,11 @@
 #app main {
     grid-area: main;
 
-    padding: 7rem 20rem 8rem;
+    padding: 7rem 20rem 15rem;
     color: var(--secondary-text-color);
+
+    display: grid;
+    align-content: center;
 }
 
 #app main h1 {
@@ -11,14 +14,14 @@
 
 main .content {
     display: grid;
-    height: 60%;
+    height: fit-content;
 
     grid-template-areas:
     "cards graph"
     "cards graph";
 
     gap: 4rem;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.2fr 1fr;
 }
 
 #card-wrapper {

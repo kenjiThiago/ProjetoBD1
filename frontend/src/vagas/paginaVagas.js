@@ -1,11 +1,19 @@
-import "../scripts/components/header.js"
-import "../scripts/components/aside.js"
+import "../styles/main.css"
+import "../styles/paginaVagas.css"
+
 import { populateTable } from "./components/tablePaginaVagas.js"
 import { buttonFunctionality } from "./functionalities/tableButtons.js"
 import { inputFunctionality } from "./functionalities/formInput.js"
+import { createHeader } from "../scripts/components/header.js"
+import { createAside } from "../scripts/components/aside.js"
+import { asideToggle } from "../scripts/functionalities/header.js"
 
-import "../styles/main.css"
-import "../styles/vagas.css"
+const aside = document.querySelector("#app aside")
+
+createHeader("Vagas Disponíveis")
+createAside(aside)
+asideToggle(aside)
+
 
 const urlParams = new URLSearchParams(window.location.search)
 

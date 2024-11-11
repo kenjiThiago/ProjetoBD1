@@ -1,9 +1,16 @@
 import "./styles/main.css"
 import "./styles/paginaInicial.css"
 
-import "./scripts/components/header.js"
-import "./scripts/components/aside.js"
+import { createHeader } from "./scripts/components/header.js"
 import { createGraph } from "./scripts/components/graph.js"
+import { createAside } from "./scripts/components/aside.js"
+import { asideToggle } from "./scripts/functionalities/header.js"
+
+const aside = document.querySelector("#app aside")
+
+createHeader("Dashboard")
+createAside(aside)
+asideToggle(aside)
 
 const response = await fetch("http://localhost:8000")
 const data = await response.json()

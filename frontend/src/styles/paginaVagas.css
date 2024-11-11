@@ -2,7 +2,7 @@ main {
     grid-area: main;
     color: var(--secondary-text-color);
 
-    padding: 2rem 2rem 2rem 20rem;
+    padding: 2rem 20rem 2rem;
 
     position: relative;
 }
@@ -49,7 +49,7 @@ main form button img {
 
 #table-wrapper {
     min-height: 82%;
-    max-width: 90%;
+    max-width: 100%;
 
     background-color: #FFFFFF;
 }
@@ -100,7 +100,7 @@ main form button img {
     background-color: #1D2C45;
     color: var(--primary-text-color);
 
-    max-width: 90%;
+    max-width: 100%;
 
     border-radius: 0 0 8px 8px;
 
