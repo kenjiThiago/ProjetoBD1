@@ -1,3 +1,6 @@
+import "../scripts/components/header.js"
+import "../scripts/components/aside.js"
+
 import "../styles/main.css"
 import "../styles/vagas.css"
 

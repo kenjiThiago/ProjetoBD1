@@ -1,5 +1,3 @@
-import "../styles/main.css"
-import "../styles/paginaInicial.css"
 import Chart from "chart.js/auto"
 import ChartDataLabels from "chartjs-plugin-datalabels"
 
