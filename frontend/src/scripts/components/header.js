@@ -9,7 +9,7 @@ document.querySelector("#app header").innerHTML = `
 
   <a href="/" id="logo">
     <img src="${logo}" alt="Logo da Marca" />
-    <h2>Escola de Programação</h2>
+    <h2>Codify</h2>
   </a>
 </div>
 `
