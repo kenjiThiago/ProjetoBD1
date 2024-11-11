@@ -1,7 +1,7 @@
 import Chart from "chart.js/auto"
 import ChartDataLabels from "chartjs-plugin-datalabels"
 
-(async function() {
+export async function createGraph(num_alunos_ativos, num_alunos_inativos) {
   const ctx = document.getElementById("acquisitions")
 
   const options = {
@@ -13,7 +13,7 @@ import ChartDataLabels from "chartjs-plugin-datalabels"
       ],
       datasets: [{
         label: "Alunos",
-        data: [150, 50],
+        data: [num_alunos_ativos, num_alunos_inativos],
         backgroundColor: [
           "#1D2C45",
           "#E65A00",
@@ -23,7 +23,7 @@ import ChartDataLabels from "chartjs-plugin-datalabels"
     },
     options: {
       layout: {
-        padding: 20
+        padding: 40
       },
       plugins: {
         legend: {
@@ -57,4 +57,4 @@ import ChartDataLabels from "chartjs-plugin-datalabels"
   }
 
   new Chart(ctx, options)
-})()
+}
