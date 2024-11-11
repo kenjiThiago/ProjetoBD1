@@ -8,8 +8,6 @@ import { createGraph } from "./scripts/components/graph.js"
 const response = await fetch("http://localhost:8000")
 const data = await response.json()
 
-console.log(data)
-
 const cards = document.querySelector("#card-wrapper")
 
 cards.innerHTML = `
