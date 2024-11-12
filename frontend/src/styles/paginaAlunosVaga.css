@@ -1,0 +1,28 @@
+#app header {
+    position: fixed;
+    width: 100%;
+
+    z-index: 1;
+}
+
+main h1 {
+    margin-bottom: 3rem;
+}
+
+main h2 {
+    margin-bottom: 1rem;
+}
+
+main form {
+    margin-top: 3rem;
+}
+
+#app aside {
+    position: fixed;
+
+    height: 100%;
+    min-width: 20rem;
+
+    top: 6rem;
+    z-index: 1;
+}
