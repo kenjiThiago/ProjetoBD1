@@ -33,12 +33,22 @@ main .content {
 
 .card {
     align-content: center;
+    text-align: center;
 
+    border: 2px solid #0F18245C;
     border-radius: 10px;
 
     background-color: var(--primary-card-color);
 
     padding: 1rem 2rem;
+}
+
+.card-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5rem;
 }
 
 .card p {
