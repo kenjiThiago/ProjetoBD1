@@ -14,7 +14,7 @@ import { asideToggle } from "./scripts/functionalities/header.js"
 const aside = document.querySelector("#app aside")
 
 createHeader("Dashboard")
-createAside(aside)
+createAside(aside, "inicio")
 asideToggle(aside)
 
 const response = await fetch("http://localhost:8000")
