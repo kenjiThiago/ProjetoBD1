@@ -23,34 +23,34 @@ const data = await response.json()
 const cards = document.querySelector("#card-wrapper")
 
 cards.innerHTML = `
-<div class="card">
+<a href="/vagas/?page=1" class="card">
   <div class="card-title">
     <h2>Número de Vagas</h2>
     <img src="${vagas}" />
   </div>
   <p><span>${data.num_vagas}</span> Vagas Disponíveis</p>
-</div>
-<div class="card">
+</a>
+<a href="#" class="card">
   <div class="card-title">
     <h2>Número de Cursos</h2>
     <img src="${cursos}" />
   </div>
   <p><span>${data.num_cursos}</span> Cursos Disponíveis</p>
-</div>
-<div class="card">
+</a>
+<a href="#" class="card">
   <div class="card-title">
     <h2>Número de Alunos</h2>
     <img src="${alunos}" />
   </div>
   <p><span>${data.num_alunos}</span> Alunos Cadastrados</p>
-</div>
-<div class="card">
+</a>
+<a href="#" class="card">
   <div class="card-title">
     <h2>Número de Empresas</h2>
     <img src="${empresas}" />
   </div>
   <p><span>${data.num_empresas}</span> Empresas Parceiras</p>
-</div>
+</a>
 `
 
 createGraph(data.num_alunos_ativos, data.num_alunos_inativos)

@@ -17,11 +17,6 @@ asideToggle(aside)
 
 const urlParams = new URLSearchParams(window.location.search)
 
-if (!urlParams.has("page")) {
-  urlParams.set("page", 1)
-  window.location.search = urlParams
-}
-
 const response = await fetch("http://localhost:8000/vagas")
 const data = await response.json()
 
