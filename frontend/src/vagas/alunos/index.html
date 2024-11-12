@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="#" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vagas</title>
+  </head>
+  <body>
+    <div id="app" class="expand">
+      <header>
+      </header>
+      <main>
+        <form action="">
+          <span>Filtros:</span>
+          <input placeholder="Nome do Aluno" name="nomeA">
+          <select name="quali">
+            <option value="qualificado">Qualificado</option>
+            <option value="naoqualificado">Não Qualificado</option>
+          </select>
+          <input name="page" value="1" hidden>
+          <button>
+            <img src="/assets/search.svg" alt="">
+            <p>Filtrar Resultados</p>
+          </button>
+        </form>
+
+        <div id="table-wrapper">
+          <table id="content">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Empresa</th>
+                <th>Numero de Inscritos</th>
+                <th>Localização</th>
+                <th>Requisitos</th>
+              </tr>
+            </thead>
+
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="table-footer">
+          <p></p>
+          <div id="pages">
+            <p></p>
+            <button id="backward"></button>
+            <button id="forward"></button>
+          </div>
+        </div>
+      </main>
+      <aside class="hide">
+      </aside>
+    </div>
+    <script type="module" src="/vagas/alunos/paginaAlunos.js"></script>
+  </body>
+</html>

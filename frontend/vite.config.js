@@ -8,6 +8,7 @@ export default {
       input: {
         main: resolve(__dirname, "src/index.html"),
         vagas: resolve(__dirname, "src/vagas/index.html"),
+        alunos: resolve(__dirname, "src/vagas/alunos/index.html"),
       },
     }
   },
