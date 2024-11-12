@@ -36,19 +36,6 @@ export async function createGraph(num_alunos_ativos, num_alunos_inativos) {
             },
           },
         },
-        title: {
-          display: true,
-          color: "#222020",
-          text: "Status dos Alunos",
-          font: {
-            size: 30,
-            weight: 'bold'
-          },
-          padding: {
-            top: -12,
-            bottom: 40
-          },
-        },
         datalabels: {
           color: "#000000",
           font: {

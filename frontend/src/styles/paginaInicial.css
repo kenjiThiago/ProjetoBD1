@@ -62,16 +62,19 @@ main .content {
     font-size: 4rem;
 }
 
-#graph.card {
-    padding: 0;
-}
-
 #graph {
     grid-area: graph;
 }
 
+#graph .card-title {
+    margin-bottom: -4rem;
+    margin-top: 2rem;
+
+    justify-content: space-between;
+}
+
 #graph-wrapper {
-    max-width: 60rem;
-    max-height: 60rem;
+    max-width: 55rem;
+    max-height: 55rem;
     margin: -5rem auto -5rem;
 }
