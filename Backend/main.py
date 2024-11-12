@@ -14,7 +14,7 @@ def get_autor():
     return jsonify("CODIFY!"), 200
 
 app.register_blueprint(aluno_blueprint)
-app.register_blueprint(curso_blueprint)
+app.register_blueprint( curso_blueprint)
 app.register_blueprint(empresa_blueprint)
 app.register_blueprint(professor_blueprint)
 app.register_blueprint(vaga_blueprint)

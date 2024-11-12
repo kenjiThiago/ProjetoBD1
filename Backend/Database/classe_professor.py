@@ -23,6 +23,7 @@ class Professor():
         
         return self.db.execute_select_all(query)
 
-    def get_professores(self):
-        query = "SELECT * FROM professor"
-        return self.db.execute_select_all(query)
+    def get_numero_professores(self) -> int:
+        query = "SELECT COUNT(*) as count FROM professor"
+        result = self.db.execute_select_one(query)
+        return result['count']
