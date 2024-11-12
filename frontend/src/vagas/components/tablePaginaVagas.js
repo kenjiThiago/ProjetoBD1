@@ -9,7 +9,7 @@ export function populateTable(page, data, numberOfPages, size) {
 
   for (let i = (page - 1) * 10; i < size && i < 10 * page; i++) {
     const row = `
-      <tr data-href="/vagas/?id=${data[i].id}">
+      <tr data-href="/vagas/alunos/?id=${data[i].id}&page=1">
         <td>${data[i].name}</td>
         <td>${data[i].empresa}</td>
         <td>${data[i].inscritos}</td>
