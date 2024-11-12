@@ -16,7 +16,7 @@
 #menu-wrapper {
     display: flex;
     align-items: center;
-    justify-content: spacen-between;
+    justify-content: space-between;
 
     gap: 12rem;
 }

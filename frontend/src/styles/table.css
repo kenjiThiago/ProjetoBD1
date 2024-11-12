@@ -56,7 +56,7 @@ main form button img {
 }
 
 #table-wrapper {
-    min-height: 82%;
+    max-height: 82%;
     max-width: 100%;
 
     background-color: #FFFFFF;
