@@ -29,6 +29,7 @@ main form button {
     padding: 0.5rem 1rem;
 
     font-weight: bold;
+    font-size: 1.6rem;
 
     display: flex;
     align-items: center;
@@ -36,11 +37,18 @@ main form button {
     gap: 0.5rem;
 }
 
-main form input {
+main form input,
+main form select {
     border: none;
     border-radius: 6px;
 
     padding: 1.1rem 1rem;
+
+    font-size: 1.6rem;
+}
+
+main form select {
+    background-color: white;
 }
 
 main form button img {
