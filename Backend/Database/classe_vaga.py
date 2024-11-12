@@ -20,3 +20,8 @@ class Vaga():
             query += " WHERE " + " AND ".join(filtros)
         
         return self.db.execute_select_all(query)
+    
+    def get_numero_vagas(self) -> int:
+        query = "SELECT COUNT(*) FROM vaga"
+        result = self.db.execute_select_one(query)
+        return result['count']

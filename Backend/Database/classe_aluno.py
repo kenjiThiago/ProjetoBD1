@@ -22,3 +22,13 @@ class Aluno():
             query += " WHERE " + " AND ".join(filtros)
 
         return self.db.execute_select_all(query)
+
+    def count_ativos(self) -> int:
+        query = "SELECT COUNT(*) as count FROM aluno WHERE status_plano = 'ativo'"
+        result = self.db.execute_select_one(query)
+        return result['count']  
+    
+    def count_inativos(self) -> int:
+        query = "SELECT COUNT(*) as count FROM aluno WHERE status_plano = 'inativo'"
+        result = self.db.execute_select_one(query)
+        return result['count']  

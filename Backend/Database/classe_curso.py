@@ -22,3 +22,8 @@ class Curso():
             query += " WHERE " + " AND ".join(filtros)
 
         return self.db.execute_select_all(query)
+
+    def get_numero_cursos(self) -> int:
+        query = "SELECT COUNT(*) FROM curso"
+        result = self.db.execute_select_one(query)
+        return result['count']

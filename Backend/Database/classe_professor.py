@@ -22,3 +22,7 @@ class Professor():
             query += " WHERE " + " AND ".join(filtros)
         
         return self.db.execute_select_all(query)
+
+    def get_professores(self):
+        query = "SELECT * FROM professor"
+        return self.db.execute_select_all(query)

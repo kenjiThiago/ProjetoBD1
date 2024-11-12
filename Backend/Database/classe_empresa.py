@@ -14,7 +14,7 @@ class Empresa():
 
         if setor:
             filtros.append(f"LOWER(setor) LIKE '%{setor.lower()}%'")
-            
+
         if localizacao:
             filtros.append(f"LOWER(localizacao) LIKE '%{localizacao.lower()}%'")
         
@@ -23,4 +23,7 @@ class Empresa():
         
         return self.db.execute_select_all(query)
     
-    
+    def get_numero_empresas(self) -> int:
+        query = "SELECT COUNT(*) FROM empresa"
+        result = self.db.execute_select_one(query)
+        return result['count']
