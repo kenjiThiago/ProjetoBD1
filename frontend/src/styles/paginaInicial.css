@@ -41,6 +41,8 @@ main .content {
     background-color: var(--primary-card-color);
 
     padding: 1rem 2rem;
+
+    color: var(--secondary-text-color);
 }
 
 .card-title {

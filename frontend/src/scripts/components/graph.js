@@ -16,8 +16,8 @@ export async function createGraph(num_alunos_ativos, num_alunos_inativos) {
         data: [num_alunos_ativos, num_alunos_inativos],
         //data: [10000, 10000],
         backgroundColor: [
-          "#1D2C45",
           "#E65A00",
+          "#1D2C45",
         ],
         hoverOffset: 4,
       }],
@@ -50,7 +50,7 @@ export async function createGraph(num_alunos_ativos, num_alunos_inativos) {
             }, 0)
 
             const percentage = value / totalSum * 100
-            return `${value}(${percentage.toFixed(1)}%)`
+            return `${value} (${percentage.toFixed(1)}%)`
           })
         },
       },
