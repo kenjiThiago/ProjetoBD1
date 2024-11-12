@@ -1,5 +1,5 @@
 import "../styles/main.css"
-import "../styles/paginaVagas.css"
+import "../styles/table.css"
 
 import { populateTable } from "./components/tablePaginaVagas.js"
 import { buttonFunctionality } from "./functionalities/tableButtons.js"
@@ -11,7 +11,7 @@ import { asideToggle } from "../scripts/functionalities/header.js"
 const aside = document.querySelector("#app aside")
 
 createHeader("Vagas Disponíveis")
-createAside(aside)
+createAside(aside, "vagas")
 asideToggle(aside)
 
 
