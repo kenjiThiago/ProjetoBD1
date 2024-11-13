@@ -2,8 +2,6 @@ main {
     color: var(--secondary-text-color);
 
     padding: 8rem 20rem 2rem;
-
-    position: relative;
 }
 
 main form {
@@ -55,7 +53,7 @@ main form button img {
 }
 
 #table-wrapper {
-    max-height: 82%;
+    min-height: 69rem;
     max-width: 100%;
 
     background-color: #FFFFFF;
