@@ -9,6 +9,7 @@ export default {
         main: resolve(__dirname, "src/index.html"),
         vagas: resolve(__dirname, "src/vagas/index.html"),
         alunos: resolve(__dirname, "src/vagas/alunos/index.html"),
+        cursos: resolve(__dirname, "src/cursos/index.html")
       },
     }
   },

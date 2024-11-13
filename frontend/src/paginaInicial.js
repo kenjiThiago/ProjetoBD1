@@ -30,7 +30,7 @@ cards.innerHTML = `
   </div>
   <p><span>${data.num_vagas}</span> Vagas Disponíveis</p>
 </a>
-<a href="#" class="card">
+<a href="/cursos/?page=1" class="card">
   <div class="card-title">
     <h2>Número de Cursos</h2>
     <img src="${cursos}" />
