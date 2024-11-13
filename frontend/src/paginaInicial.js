@@ -44,7 +44,7 @@ cards.innerHTML = `
   </div>
   <p><span>${data.num_alunos}</span> Alunos Cadastrados</p>
 </a>
-<a href="#" class="card">
+<a href="/empresas/?page=1" class="card">
   <div class="card-title">
     <h2>Número de Empresas</h2>
     <img src="${empresas}" />

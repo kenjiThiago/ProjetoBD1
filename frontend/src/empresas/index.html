@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Empresas</title>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+      </header>
+      <main>
+        <form action="">
+          <span>Filtros:</span>
+          <input placeholder="Nome da Empresa" name="empresa">
+          <input placeholder="Localização" name="localizacao">
+          <input name="page" value="1" hidden>
+          <button>
+            <img src="/assets/search.svg" alt="">
+            <p>Filtrar Resultados</p>
+          </button>
+          <button>
+            <img src="/assets/close.svg" alt="">
+            <p>Remover Filtros</p>
+          </button>
+        </form>
+
+        <div id="table-wrapper">
+          <table id="content">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Localização</th>
+                <th>Setor</th>
+                <th>Numero Vagas</th>
+              </tr>
+            </thead>
+
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="table-footer">
+          <p></p>
+          <div id="pages">
+            <p></p>
+            <button id="backward"></button>
+            <button id="forward"></button>
+          </div>
+        </div>
+      </main>
+      <aside class="hide">
+      </aside>
+    </div>
+    <script type="module" src="/empresas/paginaEmpresas.js"></script>
+  </body>
+</html>
