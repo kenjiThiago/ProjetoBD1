@@ -8,6 +8,7 @@ import { asideToggle } from "../../scripts/functionalities/header.js"
 import { buttonFunctionality } from "../../scripts/functionalities/tableButtons.js"
 import { inputFunctionality } from "./functionalities/formInput.js"
 import { populateTable } from "./components/tablePaginaAlunos.js"
+import { createRemoveFilterButton } from "../../scripts/functionalities/removeFilters.js"
 
 const aside = document.querySelector("#app aside")
 
@@ -23,6 +24,8 @@ const data = await response.json()
 const page = urlParams.get("page")
 const size = data.num_ativos + data.num_inativos
 const numberOfPages = Math.ceil(size / 10);
+
+createRemoveFilterButton()
 
 populateTable(page, data.alunos, numberOfPages, size)
 

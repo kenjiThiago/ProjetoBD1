@@ -48,6 +48,11 @@ main form select {
     background-color: white;
 }
 
+main form button:nth-last-child(1) {
+    color: var(--primary-text-color);
+    background-color: var(--primary-header-color);
+}
+
 main form button img {
     width: 3rem;
 }

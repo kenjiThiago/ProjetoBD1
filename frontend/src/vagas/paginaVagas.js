@@ -7,6 +7,7 @@ import { inputFunctionality } from "./functionalities/formInput.js"
 import { createHeader } from "../scripts/components/header.js"
 import { createAside } from "../scripts/components/aside.js"
 import { asideToggle } from "../scripts/functionalities/header.js"
+import { createRemoveFilterButton } from "../scripts/functionalities/removeFilters.js"
 
 const aside = document.querySelector("#app aside")
 
@@ -25,6 +26,8 @@ const data = await response.json()
 const page = urlParams.get("page")
 const size = data.vagas.length
 const numberOfPages = Math.ceil(size / 10);
+
+createRemoveFilterButton()
 
 populateTable(page, data.vagas, numberOfPages, size)
 
