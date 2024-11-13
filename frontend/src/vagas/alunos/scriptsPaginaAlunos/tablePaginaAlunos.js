@@ -3,7 +3,7 @@ export function populateTable(page, data, numberOfPages, size) {
   const pages = document.querySelector("#pages p")
 
   total.innerHTML = `Número de vagas: ${size}`
-  pages.innerHTML = `Página ${Number(page)} de ${numberOfPages}`
+  pages.innerHTML = `Página ${size != 0 ? Number(page) : 0} de ${numberOfPages}`
 
   const tableBody = document.querySelector("#content tbody")
 
