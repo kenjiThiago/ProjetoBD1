@@ -2,13 +2,13 @@ export function populateTable(page, data, numberOfPages, size) {
   const total = document.querySelector("#table-footer p")
   const pages = document.querySelector("#pages p")
 
-  total.innerHTML = `Número de cursos: ${size}`
+  total.innerHTML = `Número de Cursos: ${size}`
 
   if (size == 0) {
     pages.innerHTML = `Nenhuma Página`
     const tableWrapper = document.querySelector("#table-wrapper")
     tableWrapper.innerHTML += `
-      <h1>Nenhum Resultado Encontrado</h1>
+      <h1>Nenhum Curso Encontrado</h1>
     `
 
     return

@@ -17,10 +17,10 @@ asideToggle(aside)
 
 
 const urlParams = new URLSearchParams(window.location.search)
-const name = urlParams.has("nome") ? urlParams.get("nome") : ""
+const nameV = urlParams.has("nome") ? urlParams.get("nome") : ""
 const company = urlParams.has("empresa") ? urlParams.get("empresa") : ""
 
-const response = await fetch(`http://localhost:8000/vagas?nome=${name}&empresa=${company}`)
+const response = await fetch(`http://localhost:8000/vagas?nome=${nameV}&empresa=${company}`)
 const data = await response.json()
 
 const page = urlParams.get("page")

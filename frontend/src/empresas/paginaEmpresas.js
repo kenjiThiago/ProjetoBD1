@@ -18,7 +18,7 @@ asideToggle(aside)
 
 const urlParams = new URLSearchParams(window.location.search)
 const location = urlParams.has("localizacao") ? urlParams.get("localizacao") : ""
-const company = urlParams.has("empresa") ? urlParams.get("empresa") : ""
+const company = urlParams.has("nome") ? urlParams.get("nome") : ""
 
 const response = await fetch(`http://localhost:8000/empresas?nome=${company}&localizacao=${location}`)
 const data = await response.json()

@@ -16,7 +16,7 @@ createAside(aside, "cursos")
 asideToggle(aside)
 
 const urlParams = new URLSearchParams(window.location.search)
-const nameC = urlParams.has("nomeC") ? urlParams.get("nomeC") : ""
+const nameC = urlParams.has("nome") ? urlParams.get("nome") : ""
 
 const response = await fetch(`http://localhost:8000/cursos?nome=${nameC}`)
 const data = await response.json()

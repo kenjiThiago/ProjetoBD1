@@ -1,7 +1,7 @@
 export function inputFunctionality(urlParams) {
-  const inputCurso = document.querySelector("form input[name='nomeC']")
+  const inputName = document.querySelector("form input[name='nome']")
 
-  const nomeC = urlParams.get("nomeC")
+  const nameC = urlParams.get("nome")
 
-  inputCurso.value = nomeC !== null ? nomeC : ""
+  inputName.value = nameC !== null ? nameC : ""
 }

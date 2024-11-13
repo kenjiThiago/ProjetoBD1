@@ -1,10 +1,10 @@
 export function inputFunctionality(urlParams) {
-  const inputNomeAluno = document.querySelector("form input[name='nomeA']")
-  const qualificadoSelect = document.querySelector("form select[name='quali']")
+  const inputNomeAluno = document.querySelector("form input[name='nome']")
+  const qualificadoSelect = document.querySelector("form select[name='qualificacao']")
 
-  const nomeA = urlParams.get("nomeA")
-  const quali = urlParams.get("quali")
+  const nameA = urlParams.get("nome")
+  const qualification = urlParams.get("qualificacao")
 
-  inputNomeAluno.value = nomeA !== null ? nomeA : ""
-  qualificadoSelect.value = quali !== null ? quali : ""
+  inputNomeAluno.value = nameA !== null ? nameA : ""
+  qualificadoSelect.value = qualification !== null ? qualification : ""
 }
