@@ -3,6 +3,17 @@ export function populateTable(page, data, numberOfPages, size) {
   const pages = document.querySelector("#pages p")
 
   total.innerHTML = `Número de vagas: ${size}`
+
+  if (size == 0) {
+    pages.innerHTML = `Nenhuma Página`
+    const tableWrapper = document.querySelector("#table-wrapper")
+    tableWrapper.innerHTML += `
+      <h1>Nenhum Resultado Encontrado</h1>
+    `
+
+    return
+  }
+
   pages.innerHTML = `Página ${size != 0 ? Number(page) : 0} de ${numberOfPages}`
 
   const tableBody = document.querySelector("#content tbody")

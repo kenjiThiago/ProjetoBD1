@@ -64,6 +64,8 @@ main form button img {
     background-color: #FFFFFF;
 
     border-radius: 8px 8px 0 0;
+
+    position: relative;
 }
 
 #content {
@@ -105,6 +107,13 @@ main form button img {
 #content tbody tr:hover {
     text-shadow: 1px 0px 0px #E65A00;
     color: #E65A00;
+}
+
+#table-wrapper h1 {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 #table-footer {
