@@ -1,10 +1,10 @@
 export function inputFunctionality(urlParams) {
-  const inputVaga = document.querySelector("form input[name='nomeV']")
-  const inputEmpresa = document.querySelector("form input[name='nomeE']")
+  const inputName = document.querySelector("form input[name='nome']")
+  const inputCompany = document.querySelector("form input[name='empresa']")
 
-  const nomeV = urlParams.get("nomeV")
-  const nomeE = urlParams.get("nomeE")
+  const name = urlParams.get("nome")
+  const company = urlParams.get("empresa")
 
-  inputVaga.value = nomeV !== null ? nomeV : ""
-  inputEmpresa.value = nomeE !== null ? nomeE : ""
+  inputName.value = name !== null ? name : ""
+  inputCompany.value = company !== null ? company : ""
 }
