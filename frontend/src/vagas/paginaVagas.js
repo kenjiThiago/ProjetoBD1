@@ -16,15 +16,17 @@ asideToggle(aside)
 
 
 const urlParams = new URLSearchParams(window.location.search)
+const nameV = urlParams.has("nomeV") ? urlParams.get("nomeV") : ""
+const nameE = urlParams.has("nomeE") ? urlParams.get("nomeE") : ""
 
-const response = await fetch("http://localhost:8000/vagas")
+const response = await fetch(`http://localhost:8000/vagas?nome=${nameV}&empresa=${nameE}`)
 const data = await response.json()
 
 const page = urlParams.get("page")
-const size = data.length
+const size = data.vagas.length
 const numberOfPages = Math.ceil(size / 10);
 
-populateTable(page, data, numberOfPages, size)
+populateTable(page, data.vagas, numberOfPages, size)
 
 buttonFunctionality(page, numberOfPages, urlParams)
 
