@@ -1,9 +1,9 @@
 import "../styles/main.css"
 import "../styles/table.css"
 
-import { populateTable } from "./components/tablePaginaVagas.js"
+import { populateTable } from "./scriptsPaginaVagas/tablePaginaVagas.js"
 import { buttonFunctionality } from "../scripts/functionalities/tableButtons.js"
-import { inputFunctionality } from "./functionalities/formInput.js"
+import { inputFunctionality } from "./scriptsPaginaVagas/formInput.js"
 import { createHeader } from "../scripts/components/header.js"
 import { createAside } from "../scripts/components/aside.js"
 import { asideToggle } from "../scripts/functionalities/header.js"
