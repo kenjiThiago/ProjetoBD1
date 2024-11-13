@@ -3,7 +3,7 @@ import close from "../../assets/close.svg"
 
 export function asideToggle(aside) {
   const img = document.querySelector("#toggle-aside")
-  const app = document.querySelector("#app")
+  const main = document.querySelector("#app main")
   const menuWrapper = document.querySelector("#menu-wrapper")
 
   aside.style.left = "-20rem"
@@ -12,7 +12,7 @@ export function asideToggle(aside) {
     aside.style.left = "0"
     aside.classList.toggle("hide")
 
-    app.classList.toggle("expand")
+    main.classList.toggle("shrink")
 
     img.classList.toggle("rotate")
 

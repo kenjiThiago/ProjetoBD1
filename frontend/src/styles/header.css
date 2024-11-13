@@ -1,6 +1,5 @@
 #app header {
     background-color: var(--primary-header-color);
-    grid-area: header;
 
     padding: 0 20rem 0 5rem;
 }

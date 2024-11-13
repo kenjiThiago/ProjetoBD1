@@ -1,8 +1,7 @@
 main {
-    grid-area: main;
     color: var(--secondary-text-color);
 
-    padding: 2rem 20rem 2rem;
+    padding: 8rem 20rem 2rem;
 
     position: relative;
 }
@@ -60,6 +59,8 @@ main form button img {
     max-width: 100%;
 
     background-color: #FFFFFF;
+
+    border-radius: 8px 8px 0 0;
 }
 
 #content {

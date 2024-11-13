@@ -24,20 +24,35 @@ body {
 }
 
 #app {
-    display: grid;
-
-    grid-template-areas:
-    "header header"
-    "aside   main"
-    "aside   main";
-
-    grid-template-rows: 6.1rem 1fr;
-    grid-template-columns: 20rem 1fr;
-
     min-height: 100vh;
     background-color: var(--primary-background-color);
 }
 
+#app header {
+    position: fixed;
+    width: 100%;
+
+    z-index: 1;
+}
+
+#app main {
+    min-height: 100vh;
+    transition: padding-left 500ms ease-out;
+}
+
+#app aside {
+    position: fixed;
+
+    height: 100%;
+    min-width: 20rem;
+
+    top: 6rem;
+    z-index: 1;
+}
+
+#menu-wrapper {
+    transition: gap 500ms ease-out;
+}
 
 a {
     text-decoration: none;
