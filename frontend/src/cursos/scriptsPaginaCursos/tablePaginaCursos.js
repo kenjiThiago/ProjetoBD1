@@ -1,4 +1,6 @@
-export function populateTable(page, data, numberOfPages, size) {
+import { buttonFunctionality } from "../../scripts/functionalities/tableButtons.js"
+
+function populateTable(page, data, numberOfPages, size) {
   const total = document.querySelector("#table-footer p")
   const pages = document.querySelector("#pages p")
 
@@ -39,4 +41,20 @@ export function populateTable(page, data, numberOfPages, size) {
       window.location.href = row.dataset.href;
     })
   })
+}
+
+export async function createTable(urlParams) {
+  const nameC = urlParams.has("nome") ? urlParams.get("nome") : ""
+
+  const response = await fetch(`http://localhost:8000/cursos?nome=${nameC}`)
+  const data = await response.json()
+
+  const page = urlParams.get("page")
+  const size = data.cursos.length
+  const numberOfPages = Math.ceil(size / 10);
+
+
+  populateTable(page, data.cursos, numberOfPages, size)
+
+  buttonFunctionality(page, numberOfPages, urlParams)
 }

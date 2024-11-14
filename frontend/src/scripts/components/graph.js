@@ -1,7 +1,7 @@
 import Chart from "chart.js/auto"
 import ChartDataLabels from "chartjs-plugin-datalabels"
 
-export async function createGraph(num_alunos_ativos, num_alunos_inativos) {
+export function createGraph(num_alunos_ativos, num_alunos_inativos) {
   const ctx = document.getElementById("acquisitions")
 
   const options = {
