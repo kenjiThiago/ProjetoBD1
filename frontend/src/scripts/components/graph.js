@@ -35,6 +35,7 @@ export async function createGraph(num_alunos_ativos, num_alunos_inativos) {
               weight: 'bold'
             },
           },
+          reverse: true,
         },
         datalabels: {
           color: "#000000",
