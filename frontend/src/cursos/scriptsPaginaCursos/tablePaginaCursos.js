@@ -21,8 +21,9 @@ function populateTable(page, data, numberOfPages, size) {
   const tableBody = document.querySelector("#content tbody")
 
   for (let i = (page - 1) * 10; i < size && i < 10 * page; i++) {
+    const nameUrl = data[i].nome.replace(/ /g, "+")
     const row = `
-      <tr data-href="/cursos/?id=${data[i].nome}&page=1">
+      <tr data-href="/cursos/alunos/?nomeC=${nameUrl}&page=1">
         <td>${data[i].nome}</td>
         <td>${data[i].nivel}</td>
         <td>${data[i].duracao} Horas</td>
