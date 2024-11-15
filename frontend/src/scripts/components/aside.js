@@ -26,7 +26,7 @@ export function createAside(aside, id) {
       <img src="${empresas}" alt="">
       <span>Empresas</span>
     </a>
-    <a href="#" id="alunos">
+    <a href="/alunos/?page=1" id="alunos">
       <img src="${alunos}" alt="">
       <span>Alunos</span>
     </a>

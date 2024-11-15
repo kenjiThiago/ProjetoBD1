@@ -6,8 +6,8 @@ import { createHeader } from "../../scripts/components/header.js"
 import { createAside } from "../../scripts/components/aside.js"
 import { asideToggle } from "../../scripts/functionalities/header.js"
 import { createRemoveFilterButton } from "../../scripts/functionalities/removeFilters.js"
-import { inputFunctionality } from "./scriptsPaginaAlunos/formInput.js"
-import { createTable } from "./scriptsPaginaAlunos/tablePaginaAlunos.js"
+import { inputFunctionality } from "./scriptsPaginaAlunosVaga/formInput.js"
+import { createTable } from "./scriptsPaginaAlunosVaga/tablePaginaAlunosVaga.js"
 
 const aside = document.querySelector("#app aside")
 

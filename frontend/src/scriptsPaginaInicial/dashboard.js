@@ -26,7 +26,7 @@ export async function createDashboard() {
     </div>
     <p><span>${data.num_cursos}</span> Cursos Disponíveis</p>
   </a>
-  <a href="#" class="card">
+  <a href="/alunos/?page=1" class="card">
     <div class="card-title">
       <h2>Número de Alunos</h2>
       <img src="${alunos}" />
