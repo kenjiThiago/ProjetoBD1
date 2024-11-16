@@ -1,10 +1,7 @@
 main {
-    grid-area: main;
     color: var(--secondary-text-color);
 
-    padding: 2rem 20rem 2rem;
-
-    position: relative;
+    padding: 8rem 20rem 2rem;
 }
 
 main form {
@@ -51,15 +48,24 @@ main form select {
     background-color: white;
 }
 
+main form button:nth-last-child(1) {
+    color: var(--primary-text-color);
+    background-color: var(--primary-header-color);
+}
+
 main form button img {
     width: 3rem;
 }
 
 #table-wrapper {
-    max-height: 82%;
+    min-height: 69rem;
     max-width: 100%;
 
     background-color: #FFFFFF;
+
+    border-radius: 8px 8px 0 0;
+
+    position: relative;
 }
 
 #content {
@@ -101,6 +107,13 @@ main form button img {
 #content tbody tr:hover {
     text-shadow: 1px 0px 0px #E65A00;
     color: #E65A00;
+}
+
+#table-wrapper h1 {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 #table-footer {

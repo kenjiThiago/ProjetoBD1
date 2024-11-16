@@ -11,16 +11,13 @@
       <header>
       </header>
       <main>
-        <h1>Nome da Vaga</h1>
-        <h2>Descrição: Descrição da Vaga</h2>
-        <h3>Requisitos: Requisitos da Vaga</h3>
         <form action="">
           <span>Filtros:</span>
           <input placeholder="Nome do Aluno" name="nome">
-          <select name="qualificacao">
-            <option value="">Status qualificação</option>
-            <option value="qualificado">Qualificado</option>
-            <option value="naoqualificado">Não Qualificado</option>
+          <select name="status">
+            <option value="">Status</option>
+            <option value="ativo">Ativo</option>
+            <option value="Inativo">Inativo</option>
           </select>
           <input name="page" value="1" hidden>
           <button>
@@ -39,8 +36,9 @@
               <tr>
                 <th>Nome</th>
                 <th>E-mail</th>
-                <th>Cursos Concluidos</th>
-                <th>Habilidades</th>
+                <th>Vagas Inscritas</th>
+                <th>Status Plano</th>
+                <th>Idade</th>
               </tr>
             </thead>
 
@@ -61,6 +59,6 @@
       <aside class="hide">
       </aside>
     </div>
-    <script type="module" src="/vagas/alunos/paginaAlunosVaga.js"></script>
+    <script type="module" src="/alunos/paginaAlunos.js"></script>
   </body>
 </html>

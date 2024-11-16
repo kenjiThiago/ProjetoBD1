@@ -4,24 +4,18 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/assets/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alunos Inscritos</title>
+    <title>Vagas</title>
   </head>
   <body>
     <div id="app">
       <header>
       </header>
       <main>
-        <h1>Nome da Vaga</h1>
-        <h2>Descrição: Descrição da Vaga</h2>
-        <h3>Requisitos: Requisitos da Vaga</h3>
+        <h1>Nome da Empresa</h1>
+        <h2>Setor: Setor da Empresa</h2>
         <form action="">
           <span>Filtros:</span>
-          <input placeholder="Nome do Aluno" name="nome">
-          <select name="qualificacao">
-            <option value="">Status qualificação</option>
-            <option value="qualificado">Qualificado</option>
-            <option value="naoqualificado">Não Qualificado</option>
-          </select>
+          <input placeholder="Nome da Vaga" name="nome">
           <input name="page" value="1" hidden>
           <button>
             <img src="/assets/search.svg" alt="">
@@ -29,7 +23,7 @@
           </button>
           <button>
             <img src="/assets/close.svg" alt="">
-            <p>Remove Filtros</p>
+            <p>Remover Filtros</p>
           </button>
         </form>
 
@@ -38,9 +32,8 @@
             <thead>
               <tr>
                 <th>Nome</th>
-                <th>E-mail</th>
-                <th>Cursos Concluidos</th>
-                <th>Habilidades</th>
+                <th>Numero de Inscritos</th>
+                <th>Requisitos</th>
               </tr>
             </thead>
 
@@ -61,6 +54,6 @@
       <aside class="hide">
       </aside>
     </div>
-    <script type="module" src="/vagas/alunos/paginaAlunosVaga.js"></script>
+    <script type="module" src="/empresas/vagas/paginaVagasEmpresa.js"></script>
   </body>
 </html>

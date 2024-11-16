@@ -18,15 +18,15 @@ export function createAside(aside, id) {
       <img src="${vagas}" alt="">
       <span>Vagas</span>
     </a>
-    <a href="#" id="cursos">
+    <a href="/cursos/?page=1" id="cursos">
       <img src="${cursos}" alt="">
       <span>Cursos</span>
     </a>
-    <a href="#" id="empresas">
+    <a href="/empresas/?page=1" id="empresas">
       <img src="${empresas}" alt="">
       <span>Empresas</span>
     </a>
-    <a href="#" id="alunos">
+    <a href="/alunos/?page=1" id="alunos">
       <img src="${alunos}" alt="">
       <span>Alunos</span>
     </a>

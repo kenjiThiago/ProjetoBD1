@@ -11,17 +11,11 @@
       <header>
       </header>
       <main>
-        <h1>Nome da Vaga</h1>
-        <h2>Descrição: Descrição da Vaga</h2>
-        <h3>Requisitos: Requisitos da Vaga</h3>
+        <h1>Nome do Aluno</h1>
         <form action="">
           <span>Filtros:</span>
-          <input placeholder="Nome do Aluno" name="nome">
-          <select name="qualificacao">
-            <option value="">Status qualificação</option>
-            <option value="qualificado">Qualificado</option>
-            <option value="naoqualificado">Não Qualificado</option>
-          </select>
+          <input placeholder="Nome da Vaga" name="nome">
+          <input placeholder="Nome da Empresa" name="empresa">
           <input name="page" value="1" hidden>
           <button>
             <img src="/assets/search.svg" alt="">
@@ -38,9 +32,10 @@
             <thead>
               <tr>
                 <th>Nome</th>
-                <th>E-mail</th>
-                <th>Cursos Concluidos</th>
-                <th>Habilidades</th>
+                <th>Empresa</th>
+                <th>Numero de Inscritos</th>
+                <th>Localização</th>
+                <th>Requisitos</th>
               </tr>
             </thead>
 
@@ -61,6 +56,6 @@
       <aside class="hide">
       </aside>
     </div>
-    <script type="module" src="/vagas/alunos/paginaAlunosVaga.js"></script>
+    <script type="module" src="/alunos/vagas/paginaVagasAluno.js"></script>
   </body>
 </html>

@@ -2,23 +2,27 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="#" />
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vagas</title>
   </head>
   <body>
-    <div id="app" class="expand">
+    <div id="app">
       <header>
       </header>
       <main>
         <form action="">
           <span>Filtros:</span>
-          <input placeholder="Nome da Vaga" name="nomeV">
-          <input placeholder="Nome da Empresa" name="nomeE">
+          <input placeholder="Nome da Vaga" name="nome">
+          <input placeholder="Nome da Empresa" name="empresa">
           <input name="page" value="1" hidden>
           <button>
             <img src="/assets/search.svg" alt="">
             <p>Filtrar Resultados</p>
+          </button>
+          <button>
+            <img src="/assets/close.svg" alt="">
+            <p>Remover Filtros</p>
           </button>
         </form>
 

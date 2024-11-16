@@ -1,7 +1,7 @@
 #app main {
     grid-area: main;
 
-    padding: 7rem 12rem 10rem 20rem;
+    padding: 15rem 12rem 10rem 20rem;
     color: var(--secondary-text-color);
 
     display: grid;

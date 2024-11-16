@@ -1,7 +1,7 @@
 export function buttonFunctionality(page, numberOfPages, urlParams) {
   const forward = document.querySelector("#forward")
 
-  if (page == numberOfPages) {
+  if (page == numberOfPages || numberOfPages === 0) {
     forward.toggleAttribute("disabled", "disabled")
     forward.style.opacity = "0.5"
   } else {
