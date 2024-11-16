@@ -11,11 +11,9 @@ def get_vagas():
     
     vaga_model = Vaga()
     vagas = vaga_model.get_vagas(id, nome=nome, empresa=empresa)
-    total_vagas = vaga_model.get_numero_vagas()
 
     response_data = {
-        "vagas": vagas,
-        "total_vagas": total_vagas
+        "vagas": vagas
     }
 
     return jsonify(response_data), 200
