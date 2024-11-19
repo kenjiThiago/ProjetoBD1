@@ -27,7 +27,7 @@ function populateTable(page, data, numberOfPages, size) {
         <td>${data[i].nome}</td>
         <td>${data[i].nivel}</td>
         <td>${data[i].duracao} Horas</td>
-        <td>${data[i].num_alunos}</td>
+        <td>${data[i].numero_alunos_concluidos}</td>
         <td>${data[i].data_lancamento}</td>
       </tr>
     `
