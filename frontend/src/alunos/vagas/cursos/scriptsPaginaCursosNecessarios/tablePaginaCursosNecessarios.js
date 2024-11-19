@@ -34,13 +34,6 @@ function populateTable(page, data, numberOfPages, size) {
     tableBody.innerHTML += row;
   }
 
-  const rows = document.querySelectorAll("tr[data-href]")
-
-  rows.forEach(row => {
-    row.addEventListener("click", () => {
-      window.location.href = row.dataset.href;
-    })
-  })
 }
 
 export async function createTable(urlParams) {

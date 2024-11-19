@@ -1,6 +1,5 @@
 import "../../styles/main.css"
 import "../../styles/table.css"
-import "../../styles/paginaAlunosVaga.css"
 
 import { createHeader } from "../../scripts/components/header.js"
 import { createAside } from "../../scripts/components/aside.js"
