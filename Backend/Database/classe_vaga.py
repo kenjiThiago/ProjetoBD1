@@ -11,12 +11,13 @@ class Vaga():
             v.nome AS vaga_nome,
             v.descricao,
             e.localizacao,
+            e.nome AS empresa_nome,  -- Nome da empresa adicionado
             COUNT(DISTINCT si.email_aluno) AS numero_inscritos,
             STRING_AGG(DISTINCT hv.habilidade, ', ') AS requisitos
         FROM 
             vaga v
         LEFT JOIN 
-            empresa e ON v.empresa = e.nome
+            empresa e ON v.empresa = e.nome  -- Aqui, já estamos fazendo o join correto
         LEFT JOIN 
             se_inscreve si ON v.id = si.id_vaga
         LEFT JOIN 
@@ -30,23 +31,23 @@ class Vaga():
         if nome:
             filtros.append(f"LOWER(v.nome) LIKE '%{nome.lower()}%'")
         if empresa:
-            filtros.append(f"LOWER(v.empresa) LIKE '%{empresa.lower()}%'")
+            filtros.append(f"LOWER(e.nome) LIKE '%{empresa.lower()}%'")  # Correção aqui
         
         if filtros:
             query += " WHERE " + " AND ".join(filtros)
         
         query += """
         GROUP BY 
-            v.id, v.nome, v.descricao, e.localizacao
+            v.id, v.nome, v.descricao, e.localizacao, e.nome  -- Incluído 'e.nome' no GROUP BY
         """
         
         return self.db.execute_select_all(query)
+
 
     def get_numero_vagas(self) -> int:
         query = "SELECT COUNT(*) FROM vaga"
         result = self.db.execute_select_one(query)
         return result['count']
-<<<<<<< HEAD
     
     def get_vagas_inscritas_por_aluno(self, email_aluno: str, vaga_nome: str = "", empresa_nome: str = ""):
         query = f"""
@@ -90,5 +91,3 @@ class Vaga():
 
 
 
-=======
->>>>>>> 06e8fa530c419effe09bb6a9f0e973cb56bff4e1
