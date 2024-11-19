@@ -21,7 +21,7 @@ class Vaga():
         LEFT JOIN 
             se_inscreve si ON v.id = si.id_vaga
         LEFT JOIN 
-            habilidade_vaga hv ON v.id = hv.id_vaga
+            habilidade_vaga hv ON v.id = hv.id_vaga 
         """
         
         filtros = []
@@ -50,9 +50,15 @@ class Vaga():
         return result['count']
     
     def get_vagas_inscritas_por_aluno(self, email_aluno: str, vaga_nome: str = "", empresa_nome: str = ""):
-        query = f"""
+        aluno_query = f"""
+        SELECT nome AS aluno_nome
+        FROM aluno
+        WHERE email = '{email_aluno}'
+        """
+        aluno_nome = self.db.execute_select_one(aluno_query)['aluno_nome']
+
+        vagas_query = f"""
         SELECT 
-            a.nome AS aluno_nome,
             v.nome AS vaga_nome,
             e.nome AS empresa_nome,
             e.localizacao,
@@ -65,8 +71,6 @@ class Vaga():
         FROM 
             se_inscreve si
         INNER JOIN 
-            aluno a ON si.email_aluno = a.email
-        INNER JOIN 
             vaga v ON si.id_vaga = v.id
         LEFT JOIN 
             empresa e ON v.empresa = e.nome
@@ -77,17 +81,20 @@ class Vaga():
         """
         
         if vaga_nome:
-            query += f" AND LOWER(v.nome) LIKE '%{vaga_nome.lower()}%'"
+            vagas_query += f" AND LOWER(v.nome) LIKE '%{vaga_nome.lower()}%'"
         
         if empresa_nome:
-            query += f" AND LOWER(e.nome) LIKE '%{empresa_nome.lower()}%'"
+            vagas_query += f" AND LOWER(e.nome) LIKE '%{empresa_nome.lower()}%'"
         
-        query += """
+        vagas_query += """
         GROUP BY 
-            a.nome, v.nome, e.nome, e.localizacao, v.id
+            v.id, v.nome, e.nome, e.localizacao
         """
         
-        return self.db.execute_select_all(query)
+        vagas_inscritas = self.db.execute_select_all(vagas_query)
+
+        return {"aluno_nome": aluno_nome, "vagas_inscritas": vagas_inscritas}
+
 
 
 

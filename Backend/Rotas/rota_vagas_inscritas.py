@@ -13,6 +13,6 @@ def get_vagas_inscritas():
         return jsonify({"error": "O email_aluno do aluno é obrigatório"}), 400
 
     vaga_model = Vaga()
-    vagas_inscritas = vaga_model.get_vagas_inscritas_por_aluno(email_aluno, vaga_nome, empresa_nome)
+    dados = vaga_model.get_vagas_inscritas_por_aluno(email_aluno, vaga_nome, empresa_nome)
 
-    return jsonify({"vagas_inscritas": vagas_inscritas}), 200 
+    return jsonify(dados), 200
