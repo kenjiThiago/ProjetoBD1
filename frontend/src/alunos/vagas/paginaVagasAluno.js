@@ -15,6 +15,10 @@ createAside(aside, "alunos")
 asideToggle(aside)
 
 const urlParams = new URLSearchParams(window.location.search)
+const email = urlParams.has("email_aluno") ? urlParams.get("email_aluno") : ""
+
+const form = document.querySelector("form")
+form.innerHTML += `<input name="email_aluno" value="${email}" hidden>`
 
 createRemoveFilterButton()
 inputFunctionality(urlParams)

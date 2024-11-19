@@ -60,7 +60,7 @@ main form select {
     background-color: white;
 }
 
-main form button:nth-last-child(1) {
+#remove-filters {
     color: var(--primary-text-color);
     background-color: var(--primary-header-color);
 }

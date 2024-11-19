@@ -1,5 +1,5 @@
 export function createRemoveFilterButton() {
-  const button = document.querySelector("main form button:nth-last-child(1)")
+  const button = document.querySelector("#remove-filters")
   const form = document.querySelector("form")
 
   button.addEventListener("click", () => {
