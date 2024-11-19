@@ -11,7 +11,7 @@ class Curso():
             c.descricao,
             c.duracao,
             c.nivel,
-            TO_CHAR(c.data_lancamento, 'YYYY-MM-DD') AS data_lancamento,
+            TO_CHAR(c.data_lancamento, 'DD/MM/YYYY') AS data_lancamento,
             COUNT(e.email_aluno) AS numero_alunos_concluidos
         FROM 
             curso c
