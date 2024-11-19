@@ -4,6 +4,18 @@ main {
     padding: 8rem 20rem 2rem;
 }
 
+main h1 {
+    margin-bottom: 3rem;
+}
+
+main h2 {
+    margin-bottom: 1rem;
+}
+
+main h3 {
+    margin-bottom: 3rem;
+}
+
 main form {
     margin-top: 2rem;
 

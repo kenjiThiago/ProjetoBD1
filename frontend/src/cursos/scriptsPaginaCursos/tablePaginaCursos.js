@@ -46,8 +46,9 @@ function populateTable(page, data, numberOfPages, size) {
 
 export async function createTable(urlParams) {
   const nameC = urlParams.has("nome") ? urlParams.get("nome") : ""
+  const level = urlParams.has("nivel") ? urlParams.get("nivel") : ""
 
-  const response = await fetch(`http://localhost:8000/cursos?nome=${nameC}`)
+  const response = await fetch(`http://localhost:8000/cursos?nome=${nameC}&nivel=${level}`)
   const data = await response.json()
 
   const page = urlParams.get("page")
