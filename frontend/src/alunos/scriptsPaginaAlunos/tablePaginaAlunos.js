@@ -26,7 +26,7 @@ function populateTable(page, data, numberOfPages, size) {
       <tr data-href="/alunos/vagas/?nome_aluno=${nameUrl}&page=1">
         <td>${data[i].nome}</td>
         <td>${data[i].email}</td>
-        <td>${data[i].num_cursos}</td>
+        <td>${data[i].numero_inscricoes}</td>
         <td>${data[i].status_plano}</td>
         <td>${data[i].idade}</td>
       </tr>

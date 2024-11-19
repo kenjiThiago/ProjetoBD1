@@ -23,10 +23,10 @@ function populateTable(page, data, numberOfPages, size) {
   for (let i = (page - 1) * 10; i < size && i < 10 * page; i++) {
     const row = `
       <tr data-href="/empresas/vagas/?id=${data[i].id}&page=1">
-        <td>${data[i].nome}</td>
+        <td>${data[i].empresa_nome}</td>
         <td>${data[i].localizacao}</td>
         <td>${data[i].setor}</td>
-        <td>${data[i].num_vagas}</td>
+        <td>${data[i].numero_vagas}</td>
       </tr>
     `
 
