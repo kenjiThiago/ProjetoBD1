@@ -31,7 +31,7 @@ class Vaga():
         if nome:
             filtros.append(f"LOWER(v.nome) LIKE '%{nome.lower()}%'")
         if empresa:
-            filtros.append(f"LOWER(e.nome) LIKE '%{empresa.lower()}%'")  # Correção aqui
+            filtros.append(f"LOWER(e.nome) LIKE '%{empresa.lower()}%'")  
         
         if filtros:
             query += " WHERE " + " AND ".join(filtros)
