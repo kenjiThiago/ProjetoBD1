@@ -21,12 +21,12 @@ function populateTable(page, data, numberOfPages, size) {
   const tableBody = document.querySelector("#content tbody")
 
   for (let i = (page - 1) * 10; i < size && i < 10 * page; i++) {
-    const nameUrl = data[i].nome.replace(/ /g, "+")
+    const nameUrl = data[i].vaga_nome.replace(/ /g, "+")
     const row = `
       <tr data-href="/alunos/vagas/cursos/?nome_vaga=${nameUrl}&page=1">
-        <td>${data[i].nome}</td>
-        <td>${data[i].empresa}</td>
-        <td>${data[i].inscritos}</td>
+        <td>${data[i].vaga_nome}</td>
+        <td>${data[i].empresa_nome}</td>
+        <td>${data[i].numero_inscritos}</td>
         <td>${data[i].localizacao}</td>
         <td>${data[i].requisitos}</td>
       </tr>
@@ -45,17 +45,21 @@ function populateTable(page, data, numberOfPages, size) {
 }
 
 export async function createTable(urlParams) {
+  const email = urlParams.has("email_aluno") ? urlParams.get("email_aluno") : ""
   const nameV = urlParams.has("nome") ? urlParams.get("nome") : ""
   const company = urlParams.has("empresa") ? urlParams.get("empresa") : ""
 
-  const response = await fetch(`http://localhost:8000/vagas?nome=${nameV}&empresa=${company}`)
+  const response = await fetch(`http://localhost:8000/vagas_inscritas?email_aluno=${email}&vaga_nome=${nameV}&empresa_nome=${company}`)
   const data = await response.json()
 
+  const mainH1 = document.querySelector("main h1")
+  mainH1.innerHTML = `${data.aluno_nome}`
+
   const page = urlParams.get("page")
-  const size = data.vagas.length
+  const size = data.vagas_inscritas.length
   const numberOfPages = Math.ceil(size / 10);
 
-  populateTable(page, data.vagas, numberOfPages, size)
+  populateTable(page, data.vagas_inscritas, numberOfPages, size)
 
   buttonFunctionality(page, numberOfPages, urlParams)
 }

@@ -11,10 +11,14 @@ import { createTable } from "./scriptsPaginaVagasEmpresa/tablePaginaVagasEmpresa
 const aside = document.querySelector("#app aside")
 
 createHeader("Vagas da Empresa")
-createAside(aside, "vagas")
+createAside(aside, "empresas")
 asideToggle(aside)
 
 const urlParams = new URLSearchParams(window.location.search)
+const nameC = urlParams.has("empresa_nome") ? urlParams.get("empresa_nome") : ""
+
+const form = document.querySelector("form")
+form.innerHTML += `<input name="empresa_nome" value="${nameC}" hidden>`
 
 createRemoveFilterButton()
 inputFunctionality(urlParams)
