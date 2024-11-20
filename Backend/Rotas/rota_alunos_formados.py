@@ -5,7 +5,6 @@ from Database.classe_curso import Curso
 alunos_formados_blueprint = Blueprint("rota_alunos_formados", __name__)
 
 @alunos_formados_blueprint.route("/alunos_formados", methods=["GET"])
-
 def get_alunos_formados():
     nome_curso = request.args.get("curso", "").strip()  
     nome_aluno = request.args.get("nome_aluno", "").strip()  
@@ -22,6 +21,14 @@ def get_alunos_formados():
         return jsonify({"error": "Curso não encontrado"}), 404
 
     curso_info = cursos[0]
+
+    query_habilidades = f"""
+    SELECT habilidade 
+    FROM Habilidade_Curso 
+    WHERE nome_curso = '{nome_curso}'
+    """
+    habilidades = curso_model.db.execute_select_all(query_habilidades)
+    habilidades_lista = [habilidade["habilidade"] for habilidade in habilidades]
 
     query = f"""
     SELECT 
@@ -57,7 +64,8 @@ def get_alunos_formados():
     return jsonify({
         "curso": {
             "nome": curso_info["nome"],
-            "descricao": curso_info["descricao"]
+            "descricao": curso_info["descricao"],
+            "habilidades": habilidades_lista
         },
         "alunos_formados": alunos_formatados
     }), 200
