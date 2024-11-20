@@ -21,8 +21,9 @@ function populateTable(page, data, numberOfPages, size) {
   const tableBody = document.querySelector("#content tbody")
 
   for (let i = (page - 1) * 10; i < size && i < 10 * page; i++) {
+    const nameUrl = data[i].empresa_nome.replace(/ /g, "+")
     const row = `
-      <tr data-href="/empresas/vagas/?id=${data[i].id}&page=1">
+      <tr data-href="/empresas/vagas/?empresa_nome=${nameUrl}&page=1">
         <td>${data[i].empresa_nome}</td>
         <td>${data[i].localizacao}</td>
         <td>${data[i].setor}</td>
