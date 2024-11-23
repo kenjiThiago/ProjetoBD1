@@ -22,7 +22,7 @@ function populateTable(page, data, numberOfPages, size) {
 
   for (let i = (page - 1) * 10; i < size && i < 10 * page; i++) {
     const row = `
-      <tr data-href="/vagas/alunos/?id=${data[i].id}&page=1">
+      <tr data-href="/vagas/alunosInscritos/?id_vaga=${data[i].id}&page=1">
         <td>${data[i].vaga_nome}</td>
         <td>${data[i].empresa_nome}</td>
         <td>${data[i].numero_inscritos}</td>
@@ -44,7 +44,7 @@ function populateTable(page, data, numberOfPages, size) {
 }
 
 export async function createTable(urlParams) {
-  const nameV = urlParams.has("nome") ? urlParams.get("nome") : ""
+  const nameV = urlParams.has("vaga") ? urlParams.get("vaga") : ""
   const company = urlParams.has("empresa") ? urlParams.get("empresa") : ""
 
   const response = await fetch(`http://localhost:8000/vagas?nome=${nameV}&empresa=${company}`)

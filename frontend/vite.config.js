@@ -7,7 +7,7 @@ export default {
       input: {
         main: resolve(__dirname, "src/index.html"),
         vagas: resolve(__dirname, "src/vagas/index.html"),
-        alunosVaga: resolve(__dirname, "src/vagas/alunos/index.html"),
+        alunosInscritos: resolve(__dirname, "src/vagas/alunosInscritos/index.html"),
         cursos: resolve(__dirname, "src/cursos/index.html"),
         alunosCurso: resolve(__dirname, "src/cursos/alunos/index.html"),
         empresas: resolve(__dirname, "src/empresas/index.html"),
