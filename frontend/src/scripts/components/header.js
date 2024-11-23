@@ -13,7 +13,7 @@ export function createHeader(pageTitle) {
 
       <a href="/" id="logo">
         <img src="${logo}" alt="Logo da Marca" />
-        <h1>Codify</h1>
+        <h1>CODIFY</h1>
       </a>
     </div>
   `
