@@ -13,15 +13,16 @@ def get_vagas_inscritas():
         return jsonify({"error": "O email_aluno do aluno é obrigatório"}), 400
 
     vaga_model = Vaga()
-    
-    # Buscar o id da vaga usando os parâmetros vaga_nome e empresa_nome
+
     vagas = vaga_model.get_vagas(nome=vaga_nome, empresa=empresa_nome)
     if vagas:
-        vaga_id = vagas[0]['id']  # Supondo que o método retorne uma lista de vagas
+        vaga_id = vagas[0]['id']  
     else:
-        return jsonify({"error": "Vaga não encontrada"}), 404
+        vaga_id = None  
 
-    # Passa o vaga_id para o método que lida com as inscrições dos alunos
     dados = vaga_model.get_vagas_inscritas_por_aluno(email_aluno, vaga_nome, empresa_nome, vaga_id)
+    
+    if not vagas:
+        dados['vagas_inscritas'] = []
 
     return jsonify(dados), 200
