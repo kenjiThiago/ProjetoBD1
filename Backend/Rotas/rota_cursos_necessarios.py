@@ -9,6 +9,8 @@ cursos_necessarios_blueprint = Blueprint("rota_cursos_necessarios", __name__)
 def get_cursos_necessarios():
     email_aluno = request.args.get("email_aluno", "").strip()
     id_vaga = request.args.get("id_vaga", "").strip()
+    nivel = request.args.get("nivel", "").strip()
+    nome_curso = request.args.get("nome_curso", "").strip()
 
     if not email_aluno or not id_vaga:
         return jsonify({"error": "Parâmetros 'email_aluno' e 'id_vaga' são obrigatórios"}), 400
@@ -23,6 +25,7 @@ def get_cursos_necessarios():
 
     vaga = vaga[0]  
 
+    # Consultar habilidades faltantes
     query_habilidades_faltantes = f"""
     SELECT DISTINCT hv.habilidade
     FROM habilidade_vaga hv
@@ -43,8 +46,9 @@ def get_cursos_necessarios():
         }), 200
 
     habilidades_faltantes = [h["habilidade"] for h in habilidades_faltantes]
-
     habilidades_str = "', '".join(habilidades_faltantes)
+
+    # Consulta de cursos sugeridos com filtros opcionais
     query_cursos_sugeridos = f"""
         SELECT 
             subquery.nome,
@@ -63,6 +67,15 @@ def get_cursos_necessarios():
             INNER JOIN habilidade_curso hc 
             ON c.nome = hc.nome_curso
             WHERE hc.habilidade IN ('{habilidades_str}')
+    """
+
+    if nivel:
+        query_cursos_sugeridos += f" AND LOWER(c.nivel) = LOWER('{nivel}')"
+
+    if nome_curso:
+        query_cursos_sugeridos += f" AND LOWER(c.nome) LIKE '%{nome_curso.lower()}%'"
+
+    query_cursos_sugeridos += """
         ) AS subquery
         ORDER BY subquery.data_lancamento DESC
     """
