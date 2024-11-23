@@ -49,7 +49,7 @@ class Vaga():
         result = self.db.execute_select_one(query)
         return result['count']
     
-    def get_vagas_inscritas_por_aluno(self, email_aluno: str, vaga_nome: str = "", empresa_nome: str = ""):
+    def get_vagas_inscritas_por_aluno(self, email_aluno: str, vaga_nome: str = "", empresa_nome: str = "", vaga_id=None):
         aluno_query = f"""
         SELECT nome AS aluno_nome
         FROM aluno
@@ -59,6 +59,7 @@ class Vaga():
 
         vagas_query = f"""
         SELECT 
+            v.id AS vaga_id, 
             v.nome AS vaga_nome,
             e.nome AS empresa_nome,
             e.localizacao,
