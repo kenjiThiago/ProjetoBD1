@@ -9,6 +9,7 @@ from Rotas.rota_vagas_inscritas import vagas_inscritas_blueprint
 from Rotas.rota_vagas_da_empresa import vagas_empresa_blueprint
 from Rotas.rota_alunos_formados import alunos_formados_blueprint
 from Rotas.rota_cursos_necessarios import cursos_necessarios_blueprint
+from Rotas.rota_alunos_inscritos import alunos_inscritos_blueprint
 from Database.classe_aluno import Aluno
 from Database.classe_curso import Curso
 from Database.classe_empresa import Empresa
@@ -51,7 +52,7 @@ app.register_blueprint(vagas_inscritas_blueprint)
 app.register_blueprint(vagas_empresa_blueprint)
 app.register_blueprint(alunos_formados_blueprint)
 app.register_blueprint(cursos_necessarios_blueprint)
-
+app.register_blueprint(alunos_inscritos_blueprint)
 
 app.run("0.0.0.0", port=8000, debug=False)
 
