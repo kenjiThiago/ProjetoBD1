@@ -15,6 +15,10 @@ createAside(aside, "vagas")
 asideToggle(aside)
 
 const urlParams = new URLSearchParams(window.location.search)
+const idV = urlParams.has("id") ? urlParams.get("id") : ""
+
+const form = document.querySelector("form")
+form.innerHTML += `<input name="id" value="${idV}" hidden>`
 
 createRemoveFilterButton()
 inputFunctionality(urlParams)

@@ -23,9 +23,9 @@ function populateTable(page, data, numberOfPages, size) {
   for (let i = (page - 1) * 10; i < size && i < 10 * page; i++) {
     const row = `
       <tr data-href="/vagas/alunos/?id=${data[i].id}&page=1">
-        <td>${data[i].name}</td>
+        <td>${data[i].nome}</td>
         <td>${data[i].email}</td>
-        <td>${data[i].num_cursos}</td>
+        <td>${data[i].cursos_concluidos}</td>
         <td>${data[i].habilidades}</td>
       </tr>
     `
@@ -43,11 +43,27 @@ function populateTable(page, data, numberOfPages, size) {
 }
 
 export async function createTable(urlParams) {
-  const response = await fetch("http://localhost:8000/alunos")
+  const idV = urlParams.has("id") ? urlParams.get("id") : ""
+  const qualification = urlParams.has("qualificacao") ? urlParams.get("qualificacao") : ""
+  const nameS = urlParams.has("nome") ? urlParams.get("nome") : ""
+
+  const response = await fetch(`http://localhost:8000/alunos_inscritos?id_vaga=${idV}&qualificacao=${qualification}&nome_aluno=${nameS}`)
   const data = await response.json()
+  console.log(data)
+
+  const mainH1 = document.querySelector("main h1")
+  mainH1.innerHTML = data.vaga.nome
+
+  const mainH2 = document.querySelector("main h2")
+  mainH2.innerHTML = data.vaga.descricao
+
+  const mainH3 = document.querySelector("main h3")
+  data.vaga.requisitos.forEach(habilidade => {
+    mainH3.innerHTML += ` ${habilidade}`
+  })
 
   const page = urlParams.get("page")
-  const size = data.num_ativos + data.num_inativos
+  const size = data.alunos.length
   const numberOfPages = Math.ceil(size / 10);
 
   populateTable(page, data.alunos, numberOfPages, size)
