@@ -35,17 +35,30 @@ function populateTable(page, data, numberOfPages, size) {
 }
 
 export async function createTable(urlParams) {
-  const nameA = urlParams.has("nome") ? urlParams.get("nome") : ""
+  const nameC = urlParams.has("nomeC") ? urlParams.get("nomeC") : ""
+  const nameA = urlParams.has("aluno") ? urlParams.get("aluno") : ""
+  const year = urlParams.has("ano_conclusao") ? urlParams.get("ano_conclusao") : ""
 
-  const response = await fetch(`http://localhost:8000/alunos?nome=${nameA}`)
+  const response = await fetch(`http://localhost:8000/alunos_formados?curso=${nameC}&nome_aluno=${nameA}&ano_conclusao=${year}`)
   const data = await response.json()
 
+  const mainH1 = document.querySelector("main h1")
+  mainH1.innerHTML = `${data.curso.nome}`
+
+  const mainH2 = document.querySelector("main h2")
+  mainH2.innerHTML = `${data.curso.descricao}`
+
+  const mainH3 = document.querySelector("main h3")
+
+  data.curso.habilidades.forEach(habilidade => {
+    mainH3.innerHTML += ` ${habilidade}`
+  })
+
   const page = urlParams.get("page")
-  const size = data.alunos.length
+  const size = data.alunos_formados.length
   const numberOfPages = Math.ceil(size / 10);
 
-  populateTable(page, data.alunos, numberOfPages, size)
+  populateTable(page, data.alunos_formados, numberOfPages, size)
 
   buttonFunctionality(page, numberOfPages, urlParams)
 }
-

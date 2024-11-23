@@ -16,6 +16,13 @@ asideToggle(aside)
 
 const urlParams = new URLSearchParams(window.location.search)
 
+const email = urlParams.has("email_aluno") ? urlParams.get("email_aluno") : ""
+const idV = urlParams.has("id_vaga") ? urlParams.get("id_vaga") : ""
+
+const form = document.querySelector("form")
+form.innerHTML += `<input name="email_aluno" value="${email}" hidden>`
+form.innerHTML += `<input name="id_vaga" value="${idV}" hidden>`
+
 createRemoveFilterButton()
 inputFunctionality(urlParams)
 createTable(urlParams)

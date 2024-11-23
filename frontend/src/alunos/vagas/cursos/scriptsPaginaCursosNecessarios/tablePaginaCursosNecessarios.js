@@ -37,17 +37,28 @@ function populateTable(page, data, numberOfPages, size) {
 }
 
 export async function createTable(urlParams) {
-  const nameC = urlParams.has("nome") ? urlParams.get("nome") : ""
+  const nameC = urlParams.has("curso_nome") ? urlParams.get("curso_nome") : ""
+  const email = urlParams.has("email_aluno") ? urlParams.get("email_aluno") : ""
+  const level = urlParams.has("nivel") ? urlParams.get("nivel") : ""
+  const idV = urlParams.has("id_vaga") ? urlParams.get("id_vaga") : ""
 
-  const response = await fetch(`http://localhost:8000/cursos?nome=${nameC}`)
+  const response = await fetch(`http://localhost:8000/cursos_necessarios?email_aluno=${email}&id_vaga=${idV}&nome_curso=${nameC}&nivel=${level}`)
   const data = await response.json()
 
+  const mainH1 = document.querySelector("main h1")
+  mainH1.innerHTML = `${data.vaga.nome}`
+
+  const mainH2 = document.querySelector("main h2")
+  data.habilidades_faltantes.forEach(habilidade => {
+    mainH2.innerHTML += ` ${habilidade}`
+  })
+
   const page = urlParams.get("page")
-  const size = data.cursos.length
+  const size = data.cursos_sugeridos.length
   const numberOfPages = Math.ceil(size / 10);
 
 
-  populateTable(page, data.cursos, numberOfPages, size)
+  populateTable(page, data.cursos_sugeridos, numberOfPages, size)
 
   buttonFunctionality(page, numberOfPages, urlParams)
 }

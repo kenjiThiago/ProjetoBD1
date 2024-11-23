@@ -1,6 +1,6 @@
 import { buttonFunctionality } from "../../../scripts/functionalities/tableButtons.js"
 
-function populateTable(page, data, numberOfPages, size) {
+function populateTable(page, data, numberOfPages, size, email) {
   const total = document.querySelector("#table-footer p")
   const pages = document.querySelector("#pages p")
 
@@ -21,9 +21,9 @@ function populateTable(page, data, numberOfPages, size) {
   const tableBody = document.querySelector("#content tbody")
 
   for (let i = (page - 1) * 10; i < size && i < 10 * page; i++) {
-    const nameUrl = data[i].vaga_nome.replace(/ /g, "+")
+    const emailUrl = email.replace("@", "%40")
     const row = `
-      <tr data-href="/alunos/vagas/cursos/?nome_vaga=${nameUrl}&page=1">
+      <tr data-href="/alunos/vagas/cursos/?id_vaga=${data[i].vaga_id}&email_aluno=${emailUrl}&page=1">
         <td>${data[i].vaga_nome}</td>
         <td>${data[i].empresa_nome}</td>
         <td>${data[i].numero_inscritos}</td>
@@ -59,7 +59,7 @@ export async function createTable(urlParams) {
   const size = data.vagas_inscritas.length
   const numberOfPages = Math.ceil(size / 10);
 
-  populateTable(page, data.vagas_inscritas, numberOfPages, size)
+  populateTable(page, data.vagas_inscritas, numberOfPages, size, email)
 
   buttonFunctionality(page, numberOfPages, urlParams)
 }

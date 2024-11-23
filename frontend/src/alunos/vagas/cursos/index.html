@@ -12,11 +12,16 @@
       </header>
       <main>
         <h1>Nome da Vaga</h1>
-        <h2>Habilidade que Faltam: Habilidades que faltam para o aluno aplicar para vaga</h2>
+        <h2>Habilidades que Faltam: </h2>
         <form action="">
           <span>Filtros:</span>
-          <input placeholder="Nome do Curso" name="nome">
-          <!--<input placeholder="Nome da Empresa" name="nomeE">-->
+          <input placeholder="Nome do Curso" name="curso_nome">
+          <select name="nivel">
+            <option value="">Nível</option>
+            <option value="iniciante">Iniciante</option>
+            <option value="intermediário">Intermediário</option>
+            <option value="avançado">Avançado</option>
+          </select>
           <input name="page" value="1" hidden>
           <button>
             <img src="/assets/search.svg" alt="">
