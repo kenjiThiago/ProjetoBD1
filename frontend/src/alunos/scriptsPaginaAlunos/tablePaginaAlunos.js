@@ -23,7 +23,7 @@ function populateTable(page, data, numberOfPages, size) {
   for (let i = (page - 1) * 10; i < size && i < 10 * page; i++) {
     const emailUrl = data[i].email.replace("@", "%40")
     const row = `
-      <tr data-href="/alunos/vagas/?email_aluno=${emailUrl}&page=1">
+      <tr data-href="/dashboardAluno/?email=${emailUrl}&page=1">
         <td>${data[i].nome}</td>
         <td>${data[i].email}</td>
         <td>${data[i].numero_inscricoes}</td>

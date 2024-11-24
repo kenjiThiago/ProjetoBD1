@@ -41,6 +41,11 @@ main .content {
     padding: 1rem 2rem;
 
     color: var(--secondary-text-color);
+    transition: background-color 300ms;
+}
+
+a.card:hover {
+    background-color: #DFDFDF;
 }
 
 .card-title {
