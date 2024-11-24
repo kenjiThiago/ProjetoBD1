@@ -25,18 +25,24 @@ def get_cursos_necessarios():
 
     vaga = vaga[0]  
 
-    # Consultar habilidades faltantes
-    query_habilidades_faltantes = f"""
-    SELECT DISTINCT hv.habilidade
-    FROM habilidade_vaga hv
-    LEFT JOIN habilidade_curso hc 
-    ON hv.habilidade = hc.habilidade
-    LEFT JOIN estuda e 
-    ON e.nome_curso = hc.nome_curso
-    WHERE hv.id_vaga = {id_vaga}
-    AND (hc.nome_curso IS NULL OR e.email_aluno != '{email_aluno}')
+    query_habilidades_vaga = f"""
+    SELECT DISTINCT habilidade
+    FROM habilidade_vaga
+    WHERE id_vaga = {id_vaga}
     """
-    habilidades_faltantes = vaga_model.db.execute_select_all(query_habilidades_faltantes)
+    habilidades_vaga = vaga_model.db.execute_select_all(query_habilidades_vaga)
+    habilidades_vaga = [h["habilidade"] for h in habilidades_vaga]
+
+    query_habilidades_aluno = f"""
+    SELECT DISTINCT hc.habilidade
+    FROM habilidade_curso hc
+    INNER JOIN estuda e ON hc.nome_curso = e.nome_curso
+    WHERE e.email_aluno = '{email_aluno}'
+    """
+    habilidades_aluno = aluno_model.db.execute_select_all(query_habilidades_aluno)
+    habilidades_aluno = [h["habilidade"] for h in habilidades_aluno]
+
+    habilidades_faltantes = [h for h in habilidades_vaga if h not in habilidades_aluno]
 
     if not habilidades_faltantes:
         return jsonify({
@@ -45,10 +51,8 @@ def get_cursos_necessarios():
             "cursos_sugeridos": []
         }), 200
 
-    habilidades_faltantes = [h["habilidade"] for h in habilidades_faltantes]
     habilidades_str = "', '".join(habilidades_faltantes)
 
-    # Consulta de cursos sugeridos com filtros opcionais
     query_cursos_sugeridos = f"""
         SELECT 
             subquery.nome,

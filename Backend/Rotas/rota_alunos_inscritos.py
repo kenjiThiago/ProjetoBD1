@@ -42,6 +42,8 @@ def get_alunos_inscritos():
     """
     if nome_aluno:
         query_alunos_inscritos += f" AND a.nome ILIKE '%{nome_aluno}%'"
+    
+    query_alunos_inscritos += " ORDER BY a.nome"
 
     alunos_inscritos = aluno_model.db.execute_select_all(query_alunos_inscritos)
 
