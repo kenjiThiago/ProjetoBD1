@@ -8,7 +8,7 @@ main h1 {
     margin-bottom: 3rem;
 }
 
-main h2 {
+main > h2 {
     margin-bottom: 1rem;
 }
 
@@ -44,6 +44,14 @@ main form button {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+
+    cursor: pointer;
+
+    transition: background-color 300ms;
+}
+
+#filter:hover {
+    background-color: #d26e2d;
 }
 
 main form input,
@@ -63,6 +71,12 @@ main form select {
 #remove-filters {
     color: var(--primary-text-color);
     background-color: var(--primary-header-color);
+
+    transition: background-color 300ms;
+}
+
+#remove-filters:hover {
+    background-color: #19283C;
 }
 
 main form button img {
@@ -117,7 +131,7 @@ main form button img {
     padding: 2rem 1.5rem;
     border-bottom: 1px solid #000000;
 
-    transition: color, text-shadow 300ms;
+    transition: color 200ms, text-shadow 200ms;
 }
 
 #content tbody tr:hover {

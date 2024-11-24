@@ -21,7 +21,7 @@ function populateTable(page, data, numberOfPages, size) {
   const tableBody = document.querySelector("#content tbody")
 
   for (let i = (page - 1) * 10; i < size && i < 10 * page; i++) {
-    const habilits = data[i].habilidades.join(", ")
+    const habilits = data[i].habilidades.length !== 0 ? data[i].habilidades.join(", ") : "Nenhuma Habilidade"
     const row = `
       <tr data-href="/dashboardAluno/?email=${data[i].email}&page=1">
         <td>${data[i].nome}</td>

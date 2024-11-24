@@ -51,8 +51,8 @@ export async function createTable(urlParams) {
   mainH1.innerHTML = `${data.vaga.nome}`
 
   const mainH2 = document.querySelector("main h2")
-  const skills = data.habilidades_faltantes.join(", ")
-  mainH2.innerHTML += ` ${skills}`
+  const skills = data.habilidades_faltantes.length !== 0 ? "Habilidades que Faltam: " + data.habilidades_faltantes.join(", ") : "Nenhuma Habilidade Faltante"
+  mainH2.innerHTML = ` ${skills}`
 
   const page = urlParams.get("page")
   const size = data.cursos_sugeridos.length

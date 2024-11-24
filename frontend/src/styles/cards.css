@@ -41,11 +41,12 @@ main .content {
     padding: 1rem 2rem;
 
     color: var(--secondary-text-color);
-    transition: background-color 300ms;
+    transition: background-color 300ms ease-out, scale 300ms ease-out;
 }
 
 a.card:hover {
     background-color: #DFDFDF;
+    scale: 105%;
 }
 
 .card-title {

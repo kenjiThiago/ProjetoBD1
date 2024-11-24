@@ -38,6 +38,16 @@ main .content h1 {
     grid-area: bottom;
 }
 
+#status {
+    color: green;
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+#status.inactive {
+    color: #d70000;
+}
+
 .graph-wrapper {
     max-width: 55rem;
     max-height: 55rem;
