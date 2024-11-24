@@ -1,6 +1,4 @@
 #app main {
-    grid-area: main;
-
     padding: 15rem 12rem 10rem 20rem;
     color: var(--secondary-text-color);
 
@@ -75,7 +73,7 @@ main .content {
     justify-content: space-between;
 }
 
-#graph-wrapper {
+.graph-wrapper {
     max-width: 55rem;
     max-height: 55rem;
     margin: -5rem auto -5rem;

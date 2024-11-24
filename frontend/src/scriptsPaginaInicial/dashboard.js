@@ -3,7 +3,7 @@ import cursos from "../assets/cursos.svg"
 import empresas from "../assets/empresas.svg"
 import alunos from "../assets/alunos.svg"
 
-import { createGraph } from "../scripts/components/graph.js"
+import { statusGraph } from "../scripts/components/graph.js"
 
 export async function createDashboard() {
   const response = await fetch("http://localhost:8000")
@@ -42,5 +42,5 @@ export async function createDashboard() {
   </a>
   `
 
-  createGraph(data.num_alunos_ativos, data.num_alunos_inativos)
+  statusGraph(data.num_alunos_ativos, data.num_alunos_inativos)
 }

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Informações Aluno</title>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+      </header>
+      <main>
+        <div class="content">
+          <h1>Nome Aluno</h1>
+          <div id="card-wrapper">
+          </div>
+          <div class="card" id="graph">
+            <div class="card-title">
+              <h2>Progresso nos Cursos</h2>
+              <img src="/assets/progress.svg" alt="" />
+            </div>
+            <div class="graph-wrapper">
+              <canvas id="acquisitions"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div id="table">
+          <h1>Cursos Concluidos</h1>
+          <form action="/dashboardAluno/#table-footer">
+            <span>Filtros:</span>
+            <input placeholder="Nome do Curso" name="curso">
+            <input placeholder="Habilidade" name="habilidade">
+            <input name="page" value="1" hidden>
+            <button>
+              <img src="/assets/search.svg" alt="">
+              <p>Filtrar Resultados</p>
+            </button>
+            <button id="remove-filters">
+              <img src="/assets/close.svg" alt="">
+              <p>Remove Filtros</p>
+            </button>
+          </form>
+
+          <div id="table-wrapper">
+            <table id="content">
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Nível</th>
+                  <th>Data Conclusão</th>
+                  <th>Nota</th>
+                  <th>Habilidades</th>
+                </tr>
+              </thead>
+
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+
+          <div id="table-footer">
+            <p></p>
+            <div id="pages">
+              <p></p>
+              <button id="backward"></button>
+              <button id="forward"></button>
+            </div>
+          </div>
+        </div>
+      </main>
+      <aside class="hide">
+      </aside>
+    </div>
+    <script type="module" src="/dashboardAluno/paginaDashboardAluno.js"></script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+#app main {
+    padding-top: 8rem;
+    padding-bottom: 2rem;
+
+    grid-template-areas:
+    "cards cards"
+    "table table";
+
+    gap: 4rem;
+}
+
+main .content {
+    grid-area: cards;
+
+    grid-template-areas:
+    "title title"
+    "graph cards"
+    "graph cards";
+
+    grid-template-columns: 1fr 1.2fr;
+}
+
+main .content h1 {
+    grid-area: title;
+    margin-bottom: 0;
+}
+
+#card-wrapper {
+    grid-template-areas:
+    "top    top"
+    "bottom bottom";
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+#card-wrapper .card:nth-last-child(1) {
+    grid-area: bottom;
+}
+
+.graph-wrapper {
+    max-width: 55rem;
+    max-height: 55rem;
+    margin: -5rem auto -5rem;
+}
+
+#table {
+    grid-area: table;
+}
+
+#table h1 {
+    margin: 0;
+}

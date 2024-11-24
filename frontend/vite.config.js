@@ -15,6 +15,7 @@ export default {
         alunos: resolve(__dirname, "src/alunos/index.html"),
         vagasAluno: resolve(__dirname, "src/alunos/vagas/index.html"),
         cursosNecessarios: resolve(__dirname, "src/alunos/vagas/cursos/index.html"),
+        dashboardAluno: resolve(__dirname, "src/dashboardAluno/index.html"),
       },
     }
   },
