@@ -42,16 +42,17 @@ export async function createTable(urlParams) {
   const level = urlParams.has("nivel") ? urlParams.get("nivel") : ""
   const idV = urlParams.has("id_vaga") ? urlParams.get("id_vaga") : ""
 
-  const response = await fetch(`http://localhost:8000/cursos_necessarios?email_aluno=${email}&id_vaga=${idV}&nome_curso=${nameC}&nivel=${level}`)
+  const emailUrl = email.replace("@", "%40")
+
+  const response = await fetch(`http://localhost:8000/cursos_necessarios?email_aluno=${emailUrl}&id_vaga=${idV}&nome_curso=${nameC}&nivel=${level}`)
   const data = await response.json()
 
   const mainH1 = document.querySelector("main h1")
   mainH1.innerHTML = `${data.vaga.nome}`
 
   const mainH2 = document.querySelector("main h2")
-  data.habilidades_faltantes.forEach(habilidade => {
-    mainH2.innerHTML += ` ${habilidade}`
-  })
+  const skills = data.habilidades_faltantes.join(", ")
+  mainH2.innerHTML += ` ${skills}`
 
   const page = urlParams.get("page")
   const size = data.cursos_sugeridos.length

@@ -21,25 +21,26 @@ function populateTable(page, data, numberOfPages, size) {
   const tableBody = document.querySelector("#content tbody")
 
   for (let i = (page - 1) * 10; i < size && i < 10 * page; i++) {
+    const habilits = data[i].habilidades.join(", ")
     const row = `
-      <tr>
+      <tr data-href="/dashboardAluno/?email=${data[i].email}&page=1">
         <td>${data[i].nome}</td>
         <td>${data[i].email}</td>
         <td>${data[i].cursos_concluidos}</td>
-        <td>${data[i].habilidades}</td>
+        <td>${habilits}</td>
       </tr>
     `
 
     tableBody.innerHTML += row;
   }
 
-  //const rows = document.querySelectorAll("tr[data-href]")
-  //
-  //rows.forEach(row => {
-  //  row.addEventListener("click", () => {
-  //    window.location.href = row.dataset.href;
-  //  })
-  //})
+  const rows = document.querySelectorAll("tr[data-href]")
+
+  rows.forEach(row => {
+    row.addEventListener("click", () => {
+      window.location.href = row.dataset.href;
+    })
+  })
 }
 
 export async function createTable(urlParams) {
@@ -57,9 +58,8 @@ export async function createTable(urlParams) {
   mainH2.innerHTML = data.vaga.descricao
 
   const mainH3 = document.querySelector("main h3")
-  data.vaga.requisitos.forEach(habilidade => {
-    mainH3.innerHTML += ` ${habilidade}`
-  })
+  const skills = data.vaga.requisitos.join(", ")
+  mainH3.innerHTML += ` ${skills}`
 
   const page = urlParams.get("page")
   const size = data.alunos.length

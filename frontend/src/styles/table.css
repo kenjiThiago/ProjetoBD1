@@ -76,6 +76,7 @@ main form button img {
     background-color: #FFFFFF;
 
     border-radius: 8px 8px 0 0;
+    margin-top: 1rem;
 
     position: relative;
 }
@@ -85,7 +86,6 @@ main form button img {
     border-collapse: collapse;
 
     min-width: 100%;
-    margin-top: 1rem;
 
     overflow: hidden;
 }
@@ -95,6 +95,10 @@ main form button img {
     color: var(--primary-text-color);
 
     text-align: left;
+}
+
+#content tbody td {
+    min-width: 10%;
 }
 
 #content tbody tr {

@@ -49,10 +49,8 @@ export async function createTable(urlParams) {
   mainH2.innerHTML = `${data.curso.descricao}`
 
   const mainH3 = document.querySelector("main h3")
-
-  data.curso.habilidades.forEach(habilidade => {
-    mainH3.innerHTML += ` ${habilidade}`
-  })
+  const skills = data.curso.habilidades.join(", ")
+  mainH3.innerHTML += ` ${skills}`
 
   const page = urlParams.get("page")
   const size = data.alunos_formados.length

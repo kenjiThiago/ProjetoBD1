@@ -1,5 +1,5 @@
 import "./styles/main.css"
-import "./styles/paginaInicial.css"
+import "./styles/cards.css"
 
 import { createHeader } from "./scripts/components/header.js"
 import { createAside } from "./scripts/components/aside.js"
