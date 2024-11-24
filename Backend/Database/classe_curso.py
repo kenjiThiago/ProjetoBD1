@@ -37,7 +37,8 @@ class Curso():
         GROUP BY 
             c.nome, c.descricao, c.duracao, c.nivel, c.data_lancamento
         """
-    
+        query += " ORDER BY c.nome ASC"
+
         return self.db.execute_select_all(query)
 
 

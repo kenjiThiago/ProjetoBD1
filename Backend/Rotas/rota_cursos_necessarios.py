@@ -81,7 +81,7 @@ def get_cursos_necessarios():
 
     query_cursos_sugeridos += """
         ) AS subquery
-        ORDER BY subquery.data_lancamento DESC
+        ORDER BY subquery.nome ASC
     """
 
     cursos_sugeridos = curso_model.db.execute_select_all(query_cursos_sugeridos)

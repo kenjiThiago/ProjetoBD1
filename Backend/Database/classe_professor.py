@@ -20,6 +20,8 @@ class Professor():
         
         if filtros:
             query += " WHERE " + " AND ".join(filtros)
+
+        query += " ORDER BY nome ASC"
         
         return self.db.execute_select_all(query)
 

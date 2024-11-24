@@ -49,6 +49,8 @@ def get_alunos_formados():
     if ano_conclusao:
         query += f" AND EXTRACT(YEAR FROM e.data_conclusao) = {ano_conclusao}"
 
+    query += " ORDER BY a.nome ASC"
+
     alunos = aluno_model.db.execute_select_all(query)
 
     alunos_formatados = [

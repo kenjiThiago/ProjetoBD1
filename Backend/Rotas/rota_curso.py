@@ -9,7 +9,6 @@ def get_cursos():
     duracao = request.args.get("duracao", None)
     nivel = request.args.get("nivel", "")
     
-    # Converte duracao para int, se fornecido
     duracao = int(duracao) if duracao else None
 
     curso_model = Curso()

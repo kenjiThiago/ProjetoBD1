@@ -38,7 +38,9 @@ class Vaga():
         
         query += """
         GROUP BY 
-            v.id, v.nome, v.descricao, e.localizacao, e.nome  -- Incluído 'e.nome' no GROUP BY
+            v.id, v.nome, v.descricao, e.localizacao, e.nome  
+        ORDER BY 
+            v.nome ASC  
         """
         
         return self.db.execute_select_all(query)

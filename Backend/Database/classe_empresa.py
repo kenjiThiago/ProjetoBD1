@@ -32,7 +32,7 @@ class Empresa():
         GROUP BY 
             e.nome, e.localizacao, e.setor
         ORDER BY 
-            numero_vagas DESC
+            e.nome ASC
         """
 
         return self.db.execute_select_all(query)
