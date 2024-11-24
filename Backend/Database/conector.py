@@ -2,7 +2,6 @@
 from typing import Any
 import psycopg2
 from psycopg2.extras import DictCursor
-from flask import Flask, jsonify
 
 class DatabaseManager:
     "Classe de Gerenciamento do database"
