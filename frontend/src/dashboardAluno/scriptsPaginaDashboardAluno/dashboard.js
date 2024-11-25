@@ -27,10 +27,10 @@ export async function createDashboard(urlParams) {
   cards.innerHTML = `
   <a href="/alunos/vagas/?email_aluno=${emailUrl}&page=1" class="card">
     <div class="card-title">
-      <h2>Número de Vagas</h2>
+      <h2>Vagas Inscritas</h2>
       <img src="${vagas}" />
     </div>
-    <p><span>${data.dashboard.vagas_inscritas}</span> Vagas Inscritas</p>
+    <p><span>${data.dashboard.vagas_inscritas}</span></p>
   </a>
   <div class="card">
     <div class="card-title">

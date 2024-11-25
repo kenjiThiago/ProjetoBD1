@@ -14,31 +14,31 @@ export async function createDashboard() {
   cards.innerHTML = `
   <a href="/vagas/?page=1" class="card">
     <div class="card-title">
-      <h2>Número de Vagas</h2>
+      <h2>Vagas Disponíveis</h2>
       <img src="${vagas}" />
     </div>
-    <p><span>${data.num_vagas}</span> Vagas Disponíveis</p>
+    <p><span>${data.num_vagas}</span></p>
   </a>
   <a href="/cursos/?page=1" class="card">
     <div class="card-title">
-      <h2>Número de Cursos</h2>
+      <h2>Cursos Disponíveis</h2>
       <img src="${cursos}" />
     </div>
-    <p><span>${data.num_cursos}</span> Cursos Disponíveis</p>
+    <p><span>${data.num_cursos}</span></p>
   </a>
   <a href="/alunos/?page=1" class="card">
     <div class="card-title">
-      <h2>Número de Alunos</h2>
+      <h2>Alunos Cadastrados</h2>
       <img src="${alunos}" />
     </div>
-    <p><span>${data.num_alunos}</span> Alunos Cadastrados</p>
+    <p><span>${data.num_alunos}</span></p>
   </a>
   <a href="/empresas/?page=1" class="card">
     <div class="card-title">
-      <h2>Número de Empresas</h2>
+      <h2>Empresas Parceiras</h2>
       <img src="${empresas}" />
     </div>
-    <p><span>${data.num_empresas}</span> Empresas Parceiras</p>
+    <p><span>${data.num_empresas}</span></p>
   </a>
   `
 
