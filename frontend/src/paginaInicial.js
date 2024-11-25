@@ -1,3 +1,4 @@
+import "./scripts/functionalities/font.js"
 import "./styles/main.css"
 import "./styles/cards.css"
 
