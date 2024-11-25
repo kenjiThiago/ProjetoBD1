@@ -57,7 +57,8 @@ a.card:hover {
     gap: 5rem;
 }
 
-.card p {
+.card p,
+.card li {
     margin-top: 5rem;
     font-size: 2rem;
 }

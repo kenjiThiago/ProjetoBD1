@@ -31,7 +31,7 @@ main .content h1 {
     "bottom bottom";
 
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 0.5fr 1fr;
 }
 
 #card-wrapper .card:nth-last-child(1) {
@@ -46,6 +46,23 @@ main .content h1 {
 
 #status.inactive {
     color: #d70000;
+}
+
+#list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    max-height: 22.2rem;
+    padding: 0 2rem;
+
+    flex-wrap: wrap;
+
+    overflow: scroll;
+}
+
+#list li {
+    margin-right: 4rem;
 }
 
 .graph-wrapper {

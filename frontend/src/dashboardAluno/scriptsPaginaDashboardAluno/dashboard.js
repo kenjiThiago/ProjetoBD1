@@ -44,9 +44,18 @@ export async function createDashboard(urlParams) {
       <h2>Habilidades do Aluno</h2>
       <img src="${habilidades}" />
     </div>
-    <p>${skills}</p>
+    <ul id="list">
+    </ul>
   </div>
   `
+
+  const skillList = document.querySelector("#list")
+  console.log(skillList)
+  data.dashboard.habilidades_totais.forEach(habilidade => {
+    skillList.innerHTML += `
+      <li>${habilidade}</li>
+    `
+  })
 
   courseGraph(data.dashboard.cursos_concluidos, data.dashboard.cursos_nao_concluidos)
   createTable(urlParams, data.cursos_concluidos_detalhes)
