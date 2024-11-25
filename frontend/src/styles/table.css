@@ -108,11 +108,12 @@ main form button img {
     background-color: #1D2C45;
     color: var(--primary-text-color);
 
-    text-align: left;
+    text-align: center;
 }
 
 #content tbody td {
     min-width: 10%;
+    text-align: center;
 }
 
 #content tbody tr {

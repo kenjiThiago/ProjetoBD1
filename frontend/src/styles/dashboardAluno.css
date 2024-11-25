@@ -41,7 +41,7 @@ main .content h1 {
 #status {
     color: green;
     font-weight: bold;
-    font-size: 3rem;
+    font-size: 4rem;
 }
 
 #status.inactive {
