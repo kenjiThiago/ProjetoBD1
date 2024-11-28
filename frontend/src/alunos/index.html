@@ -11,24 +11,26 @@
       <header>
       </header>
       <main>
-        <form action="">
+        <div class="form-wrapper">
           <span>Filtros:</span>
-          <input placeholder="Nome do Aluno" name="nome">
-          <select name="status_plano">
-            <option value="">Status Plano</option>
-            <option value="ativo">Ativo</option>
-            <option value="Inativo">Inativo</option>
-          </select>
-          <input name="page" value="1" hidden>
-          <button id="filter">
-            <img src="/assets/search.svg" alt="">
-            <p>Filtrar Resultados</p>
-          </button>
-          <button id="remove-filters">
-            <img src="/assets/close.svg" alt="">
-            <p>Remove Filtros</p>
-          </button>
-        </form>
+          <form action="">
+            <input placeholder="Nome do Aluno" name="nome">
+            <select name="status_plano">
+              <option value="">Status Plano</option>
+              <option value="ativo">Ativo</option>
+              <option value="Inativo">Inativo</option>
+            </select>
+            <input name="page" value="1" hidden>
+            <button id="filter">
+              <img src="/assets/search.svg" alt="">
+              <p>Filtrar Resultados</p>
+            </button>
+            <button id="remove-filters">
+              <img src="/assets/close.svg" alt="">
+              <p>Remove Filtros</p>
+            </button>
+          </form>
+        </div>
 
         <div id="table-wrapper">
           <table id="content">

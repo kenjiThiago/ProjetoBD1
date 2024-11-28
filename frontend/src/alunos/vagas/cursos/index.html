@@ -13,25 +13,28 @@
       <main>
         <h1>Nome da Vaga</h1>
         <h2>Habilidades que Faltam: </h2>
-        <form action="">
+        <div class="form-wrapper">
           <span>Filtros:</span>
-          <input placeholder="Nome do Curso" name="curso_nome">
-          <select name="nivel">
-            <option value="">Nível</option>
-            <option value="iniciante">Iniciante</option>
-            <option value="intermediário">Intermediário</option>
-            <option value="avançado">Avançado</option>
-          </select>
-          <input name="page" value="1" hidden>
-          <button id="filter">
-            <img src="/assets/search.svg" alt="">
-            <p>Filtrar Resultados</p>
-          </button>
-          <button id="remove-filters">
-            <img src="/assets/close.svg" alt="">
-            <p>Remover Filtros</p>
-          </button>
-        </form>
+          <form action="">
+            <input placeholder="Nome do Curso" name="curso_nome">
+            <input placeholder="Habilidade" name="hablidade">
+            <select name="nivel">
+              <option value="">Nível</option>
+              <option value="iniciante">Iniciante</option>
+              <option value="intermediário">Intermediário</option>
+              <option value="avançado">Avançado</option>
+            </select>
+            <input name="page" value="1" hidden>
+            <button id="filter">
+              <img src="/assets/search.svg" alt="">
+              <p>Filtrar Resultados</p>
+            </button>
+            <button id="remove-filters">
+              <img src="/assets/close.svg" alt="">
+              <p>Remover Filtros</p>
+            </button>
+          </form>
+        </div>
 
         <div id="table-wrapper">
           <table id="content">
