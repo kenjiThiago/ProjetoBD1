@@ -58,11 +58,16 @@ main .content h1 {
 
     flex-wrap: wrap;
 
-    overflow: scroll;
+    overflow-y: scroll;
+    scrollbar-width: none;
 }
 
-#list li {
-    margin-right: 4rem;
+#list li + li {
+    margin-left: 4rem;
+}
+
+#list li:nth-child(1) {
+    margin-left: 2.2rem;
 }
 
 .graph-wrapper {
@@ -77,4 +82,13 @@ main .content h1 {
 
 #table h1 {
     margin: 0;
+}
+
+@media (max-width: 1385px) {
+    main .content {
+        grid-template-areas:
+        "title title"
+        "cards cards"
+        "graph graph";
+    }
 }

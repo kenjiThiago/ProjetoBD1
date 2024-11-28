@@ -16,21 +16,40 @@ main h3 {
     margin-bottom: 3rem;
 }
 
-main form {
+.form-wrapper {
     margin-top: 2rem;
 
     display: flex;
     align-items: center;
 
     gap: 2rem;
+    flex-wrap: wrap;
+}
+
+main form {
+    display: flex;
+    align-items: center;
+
+    gap: 2rem;
+
+    flex-wrap: wrap;
+}
+
+main form button, input, select {
+    flex: 1 1 0px;
 }
 
 main form span {
     font-weight: bold;
 }
 
+main form input[name="ano_conclusao"] {
+    min-width: 23rem;
+}
+
 main form button {
     background-color: #f98235;
+    min-width: 20rem;
 
     border: none;
     border-radius: 6px;
@@ -84,7 +103,7 @@ main form button img {
 }
 
 #table-wrapper {
-    min-height: 64rem;
+    min-height: 68rem;
     max-width: 100%;
 
     background-color: #FFFFFF;
@@ -109,10 +128,11 @@ main form button img {
     color: var(--primary-text-color);
 
     text-align: center;
+    max-width: 40rem;
 }
 
 #content tbody td {
-    min-width: 10%;
+    max-width: 40rem;
     text-align: center;
 }
 

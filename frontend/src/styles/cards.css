@@ -14,7 +14,7 @@ main .content {
     "cards graph"
     "cards graph";
 
-    gap: 4rem;
+    gap: 2rem;
     grid-template-columns: 1.2fr 1fr;
 }
 
@@ -57,9 +57,14 @@ a.card:hover {
     gap: 5rem;
 }
 
+.card-title {
+    font-size: clamp(1.1rem, 0.81vw, 2.8rem);
+}
+
 .card p,
 .card li {
     margin-top: 5rem;
+
     font-size: 2rem;
 }
 
@@ -81,7 +86,15 @@ a.card:hover {
 }
 
 .graph-wrapper {
-    max-width: 55rem;
-    max-height: 55rem;
+    max-width: 50rem;
+    max-height: 50rem;
     margin: -5rem auto -5rem;
+}
+
+@media (max-width: 1400px) {
+    main .content {
+        grid-template-areas:
+        "cards cards"
+        "graph graph";
+    }
 }
