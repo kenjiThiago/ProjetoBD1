@@ -1,4 +1,3 @@
-"Camada que gerencia o Database"
 from typing import Any
 import psycopg2
 from psycopg2.extras import DictCursor
@@ -18,20 +17,35 @@ class DatabaseManager:
 
     def execute_statement(self, statement: str) -> None:
         "Usado para Inserções, Deleções, Alter Tables"
-        self.cursor.execute(statement)
-        self.conn.commit()
+        try:
+            self.cursor.execute(statement)
+            self.conn.commit()
+        except psycopg2.Error as e:
+            self.conn.rollback()  # Reverte transação em caso de erro
+            print(f"Erro ao executar o comando: {e}")
+            raise e
 
     def execute_select_all(self, query: str) -> list[dict[str, Any]]:
         "Usado para SELECTS no geral"
-        self.cursor.execute(query)
-        return [dict(item) for item in self.cursor.fetchall()]
+        try:
+            self.cursor.execute(query)
+            return [dict(item) for item in self.cursor.fetchall()]
+        except psycopg2.Error as e:
+            self.conn.rollback()  # Reverte transação em caso de erro
+            print(f"Erro ao executar a consulta: {query}\n{e}")
+            raise e
 
     def execute_select_one(self, query: str) -> dict | None:
         "Usado para SELECT com apenas uma linha de resposta"
-        self.cursor.execute(query)
-        query_result = self.cursor.fetchone()
+        try:
+            self.cursor.execute(query)
+            query_result = self.cursor.fetchone()
 
-        if not query_result:
-            return None
+            if not query_result:
+                return None
 
-        return dict(query_result)
+            return dict(query_result)
+        except psycopg2.Error as e:
+            self.conn.rollback()  # Reverte transação em caso de erro
+            print(f"Erro ao executar a consulta: {query}\n{e}")
+            raise e

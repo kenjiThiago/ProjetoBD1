@@ -6,9 +6,9 @@ alunos_formados_blueprint = Blueprint("rota_alunos_formados", __name__)
 
 @alunos_formados_blueprint.route("/alunos_formados", methods=["GET"])
 def get_alunos_formados():
-    nome_curso = request.args.get("curso", "").strip()  
-    nome_aluno = request.args.get("nome_aluno", "").strip()  
-    ano_conclusao = request.args.get("ano_conclusao", "").strip()  
+    nome_curso = request.args.get("curso", "").strip()
+    nome_aluno = request.args.get("nome_aluno", "").strip()
+    ano_conclusao = request.args.get("ano_conclusao", "").strip()
 
     if not nome_curso:
         return jsonify({"error": "O nome do curso é obrigatório"}), 400
@@ -23,12 +23,19 @@ def get_alunos_formados():
     curso_info = cursos[0]
 
     query_habilidades = f"""
-    SELECT habilidade 
-    FROM Habilidade_Curso 
-    WHERE nome_curso = '{nome_curso}'
+    SELECT h.nome, h.nivel
+    FROM Habilidade_Curso hc
+    JOIN Habilidade h ON hc.id_habilidade = h.id
+    WHERE hc.nome_curso = '{nome_curso}'
     """
-    habilidades = curso_model.db.execute_select_all(query_habilidades)
-    habilidades_lista = [habilidade["habilidade"] for habilidade in habilidades]
+    try:
+        habilidades = curso_model.db.execute_select_all(query_habilidades)
+        habilidades_lista = [
+            {"nome": habilidade["nome"], "nivel": habilidade["nivel"]}
+            for habilidade in habilidades
+        ]
+    except Exception as e:
+        return jsonify({"error": f"Erro ao buscar habilidades: {str(e)}"}), 500
 
     query = f"""
     SELECT 
@@ -42,8 +49,8 @@ def get_alunos_formados():
         Aluno a ON e.email_aluno = a.email
     WHERE 
         e.nome_curso = '{nome_curso}'
+        AND e.data_conclusao IS NOT NULL
     """
-
     if nome_aluno:
         query += f" AND LOWER(a.nome) LIKE '%{nome_aluno.lower()}%'"
     if ano_conclusao:
@@ -51,17 +58,19 @@ def get_alunos_formados():
 
     query += " ORDER BY a.nome ASC"
 
-    alunos = aluno_model.db.execute_select_all(query)
-
-    alunos_formatados = [
-        {
-            "nome": aluno["aluno_nome"],
-            "email": aluno["aluno_email"],
-            "data_conclusao": aluno["data_conclusao"],
-            "nota": aluno["nota"]
-        }
-        for aluno in alunos
-    ]
+    try:
+        alunos = aluno_model.db.execute_select_all(query)
+        alunos_formatados = [
+            {
+                "nome": aluno["aluno_nome"],
+                "email": aluno["aluno_email"],
+                "data_conclusao": aluno["data_conclusao"],
+                "nota": aluno["nota"]
+            }
+            for aluno in alunos
+        ]
+    except Exception as e:
+        return jsonify({"error": f"Erro ao buscar alunos: {str(e)}"}), 500
 
     return jsonify({
         "curso": {

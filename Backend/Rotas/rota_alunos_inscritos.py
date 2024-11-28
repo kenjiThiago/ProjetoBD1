@@ -23,12 +23,13 @@ def get_alunos_inscritos():
     vaga = vaga[0]  
 
     query_habilidades_vaga = f"""
-    SELECT habilidade
-    FROM habilidade_vaga
-    WHERE id_vaga = {id_vaga}
+    SELECT h.nome
+    FROM habilidade_vaga hv
+    JOIN habilidade h ON hv.id_habilidade = h.id
+    WHERE hv.id_vaga = {id_vaga}
     """
     habilidades_vaga = vaga_model.db.execute_select_all(query_habilidades_vaga)
-    habilidades_vaga = [h["habilidade"] for h in habilidades_vaga]
+    habilidades_vaga = [h["nome"] for h in habilidades_vaga]
 
     query_alunos_inscritos = f"""
     SELECT 
@@ -74,13 +75,14 @@ def get_alunos_inscritos():
 
         
         query_habilidades_aluno = f"""
-        SELECT DISTINCT hc.habilidade
+        SELECT DISTINCT h.nome
         FROM habilidade_curso hc
+        JOIN habilidade h ON hc.id_habilidade = h.id
         INNER JOIN estuda e ON hc.nome_curso = e.nome_curso
         WHERE e.email_aluno = '{aluno["email"]}'
         """
         habilidades_aluno = aluno_model.db.execute_select_all(query_habilidades_aluno)
-        habilidades_aluno = [h["habilidade"] for h in habilidades_aluno]
+        habilidades_aluno = [h["nome"] for h in habilidades_aluno]
 
         
         aluno_qualificado = all(h in habilidades_aluno for h in habilidades_vaga)
