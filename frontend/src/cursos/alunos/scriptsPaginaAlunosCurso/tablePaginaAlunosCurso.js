@@ -22,7 +22,7 @@ function populateTable(page, data, numberOfPages, size) {
 
   for (let i = (page - 1) * 10; i < size && i < 10 * page; i++) {
     const row = `
-      <tr data-href="/vagas/alunos/?id=${data[i].id}&page=1">
+      <tr data-href="/dashboardAluno/?email=${data[i].email}&page=1">
         <td>${data[i].nome}</td>
         <td>${data[i].email}</td>
         <td>${data[i].data_conclusao}</td>
@@ -32,6 +32,14 @@ function populateTable(page, data, numberOfPages, size) {
 
     tableBody.innerHTML += row;
   }
+
+  const rows = document.querySelectorAll("tr[data-href]")
+
+  rows.forEach(row => {
+    row.addEventListener("click", () => {
+      window.location.href = row.dataset.href;
+    })
+  })
 }
 
 export async function createTable(urlParams) {

@@ -27,6 +27,7 @@ function populateTable(page, data, numberOfPages, size) {
         <td>${data[i].nome}</td>
         <td>${data[i].email}</td>
         <td>${data[i].cursos_concluidos}</td>
+        <td>${data[i].idade}</td>
         <td>${habilits}</td>
       </tr>
     `
