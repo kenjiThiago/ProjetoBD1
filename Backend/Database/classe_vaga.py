@@ -11,17 +11,19 @@ class Vaga():
             v.nome AS vaga_nome,
             v.descricao,
             e.localizacao,
-            e.nome AS empresa_nome,  -- Nome da empresa adicionado
+            e.nome AS empresa_nome,
             COUNT(DISTINCT si.email_aluno) AS numero_inscritos,
-            STRING_AGG(DISTINCT hv.habilidade, ', ') AS requisitos
+            STRING_AGG(DISTINCT h.nome || ': ' || h.nivel, ', ') AS requisitos
         FROM 
             vaga v
         LEFT JOIN 
-            empresa e ON v.empresa = e.nome  -- Aqui, já estamos fazendo o join correto
+            empresa e ON v.empresa = e.nome
         LEFT JOIN 
             se_inscreve si ON v.id = si.id_vaga
         LEFT JOIN 
-            habilidade_vaga hv ON v.id = hv.id_vaga 
+            habilidade_vaga hv ON v.id = hv.id_vaga
+        LEFT JOIN 
+            habilidade h ON hv.id_habilidade = h.id
         """
         
         filtros = []
@@ -69,8 +71,13 @@ class Vaga():
                 SELECT COUNT(*) 
                 FROM se_inscreve si_sub 
                 WHERE si_sub.id_vaga = v.id
-            ) AS numero_inscritos, -- Contagem de todos os inscritos na vaga
-            STRING_AGG(hv.habilidade, ', ') AS requisitos
+            ) AS numero_inscritos,
+            json_agg(
+                DISTINCT json_build_object(
+                    'nome', h.nome,
+                    'nivel', h.nivel
+                )
+            ) AS requisitos
         FROM 
             se_inscreve si
         INNER JOIN 
@@ -79,6 +86,8 @@ class Vaga():
             empresa e ON v.empresa = e.nome
         LEFT JOIN 
             habilidade_vaga hv ON v.id = hv.id_vaga
+        LEFT JOIN 
+            habilidade h ON hv.id_habilidade = h.id
         WHERE 
             si.email_aluno = '{email_aluno}'
         """
@@ -97,7 +106,3 @@ class Vaga():
         vagas_inscritas = self.db.execute_select_all(vagas_query)
 
         return {"aluno_nome": aluno_nome, "vagas_inscritas": vagas_inscritas}
-
-
-
-
