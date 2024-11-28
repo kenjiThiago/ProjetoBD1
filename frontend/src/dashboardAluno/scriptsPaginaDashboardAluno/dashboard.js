@@ -28,21 +28,21 @@ export async function createDashboard(urlParams) {
   <a href="/alunos/vagas/?email_aluno=${emailUrl}&page=1" class="card">
     <div class="card-title">
       <h2>Vagas Inscritas</h2>
-      <img src="${vagas}" />
+      <img src="${vagas}" alt="" />
     </div>
     <p><span>${data.dashboard.vagas_inscritas}</span></p>
   </a>
   <div class="card">
     <div class="card-title">
       <h2>Status Aluno</h2>
-      <img src="${alunos}" />
+      <img src="${alunos}" alt="" />
     </div>
     <p id="status" class="${classStatus}">${status}</p>
   </div>
   <div class="card">
     <div class="card-title">
       <h2>Habilidades do Aluno</h2>
-      <img src="${habilidades}" />
+      <img src="${habilidades}" alt="" />
     </div>
     <ul id="list">
     </ul>

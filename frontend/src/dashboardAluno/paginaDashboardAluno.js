@@ -14,7 +14,7 @@ import { inputFunctionality } from "./scriptsPaginaDashboardAluno/formInput.js"
 const aside = document.querySelector("#app aside")
 
 createHeader("Informações do Aluno")
-createAside(aside)
+createAside(aside, "alunos")
 asideToggle(aside)
 
 const urlParams = new URLSearchParams(window.location.search)
