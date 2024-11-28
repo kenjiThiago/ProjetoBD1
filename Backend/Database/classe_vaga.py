@@ -73,10 +73,7 @@ class Vaga():
                 WHERE si_sub.id_vaga = v.id
             ) AS numero_inscritos,
             json_agg(
-                DISTINCT json_build_object(
-                    'nome', h.nome,
-                    'nivel', h.nivel
-                )
+                DISTINCT (h.nome || ': ' || h.nivel)  -- Alteração: concatenando habilidade e nível com ": " entre eles
             ) AS requisitos
         FROM 
             se_inscreve si
@@ -91,7 +88,7 @@ class Vaga():
         WHERE 
             si.email_aluno = '{email_aluno}'
         """
-        
+
         if vaga_nome:
             vagas_query += f" AND LOWER(v.nome) LIKE '%{vaga_nome.lower()}%'"
         
@@ -105,4 +102,23 @@ class Vaga():
         
         vagas_inscritas = self.db.execute_select_all(vagas_query)
 
-        return {"aluno_nome": aluno_nome, "vagas_inscritas": vagas_inscritas}
+        habilidades_query = f"""
+        SELECT 
+            STRING_AGG(h.nome || ': ' || h.nivel, ', ') AS habilidade
+        FROM 
+            estuda e
+        INNER JOIN 
+            habilidade_curso hc ON e.nome_curso = hc.nome_curso
+        INNER JOIN 
+            habilidade h ON hc.id_habilidade = h.id
+        WHERE 
+            e.email_aluno = '{email_aluno}'
+        """
+        
+        habilidades_aluno = self.db.execute_select_all(habilidades_query)
+
+        return {
+            "aluno_nome": aluno_nome,
+            "vagas_inscritas": vagas_inscritas,
+            "habilidades_aluno": [{"habilidade": habilidades_aluno[0]['habilidade']}]  
+        }
