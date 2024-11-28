@@ -43,9 +43,10 @@ def aluno_dashboard():
     vagas_inscritas = aluno_model.db.execute_select_one(query_vagas_inscritas)["vagas_inscritas"]
 
     query_habilidades_totais = f"""
-    SELECT DISTINCT hc.habilidade
+    SELECT DISTINCT h.nome || ': ' || h.nivel AS habilidade
     FROM Estuda e
     INNER JOIN Habilidade_Curso hc ON e.nome_curso = hc.nome_curso
+    INNER JOIN Habilidade h ON hc.id_habilidade = h.id
     WHERE e.email_aluno = '{email_aluno}' AND e.data_conclusao IS NOT NULL
     """
     habilidades_totais = aluno_model.db.execute_select_all(query_habilidades_totais)
@@ -67,17 +68,19 @@ def aluno_dashboard():
         query_detalhes_cursos_concluidos += f"""
         AND c.nome IN (
             SELECT nome_curso
-            FROM Habilidade_Curso
-            WHERE habilidade ILIKE '%{filtro_habilidade}%'
+            FROM Habilidade_Curso hc
+            INNER JOIN Habilidade h ON hc.id_habilidade = h.id
+            WHERE h.nome ILIKE '%{filtro_habilidade}%'
         )
         """
     cursos_concluidos_detalhes = aluno_model.db.execute_select_all(query_detalhes_cursos_concluidos)
 
     for curso in cursos_concluidos_detalhes:
         query_habilidades_curso = f"""
-        SELECT habilidade
-        FROM Habilidade_Curso
-        WHERE nome_curso = '{curso["nome"]}'
+        SELECT h.nome || ': ' || h.nivel AS habilidade
+        FROM Habilidade_Curso hc
+        INNER JOIN Habilidade h ON hc.id_habilidade = h.id
+        WHERE hc.nome_curso = '{curso["nome"]}'
         """
         habilidades = aluno_model.db.execute_select_all(query_habilidades_curso)
         curso["habilidades"] = [h["habilidade"] for h in habilidades]
