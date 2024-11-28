@@ -12,11 +12,16 @@ class Curso():
             c.duracao,
             c.nivel,
             TO_CHAR(c.data_lancamento, 'DD/MM/YYYY') AS data_lancamento,
-            COUNT(e.email_aluno) AS numero_alunos_concluidos
+            COUNT(e.email_aluno) AS numero_alunos_concluidos,
+            STRING_AGG(DISTINCT h.nome || ': ' || h.nivel, ', ') AS habilidades -- Corrigindo a formatação das habilidades
         FROM 
             curso c
         LEFT JOIN 
             estuda e ON c.nome = e.nome_curso AND e.data_conclusao IS NOT NULL
+        LEFT JOIN 
+            habilidade_curso hc ON c.nome = hc.nome_curso
+        LEFT JOIN 
+            habilidade h ON hc.id_habilidade = h.id
         """
         
         filtros = []
@@ -40,6 +45,8 @@ class Curso():
         query += " ORDER BY c.nome ASC"
 
         return self.db.execute_select_all(query)
+
+
 
 
     def get_numero_cursos(self) -> int:
