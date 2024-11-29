@@ -4,7 +4,7 @@ class Vaga():
     def __init__(self, db_provider=DatabaseManager()) -> None:
         self.db = db_provider
 
-    def get_vagas(self, id: int = None, nome: str = "", empresa: str = "", requisitos: str = "", ordenar_por: str = "numero_inscritos", ordenar_ordem: str = "DESC"):
+    def get_vagas(self, id: int = None, nome: str = "", empresa: str = "", requisitos: str = "", ordenar_por: str = "numero_inscritos", ordenar_ordem: str = "DESC", localizacao: str = ""):
         query = """
         SELECT 
             v.id,
@@ -34,6 +34,8 @@ class Vaga():
             filtros.append(f"LOWER(v.nome) LIKE '%{nome.lower()}%'")
         if empresa:
             filtros.append(f"LOWER(e.nome) LIKE '%{empresa.lower()}%'")
+        if localizacao:
+            filtros.append(f"LOWER(e.localizacao) LIKE '%{localizacao.lower()}%'")
         if requisitos:
             filtros.append(f"""
             EXISTS (
@@ -130,7 +132,7 @@ class Vaga():
 
         habilidades_query = f"""
         SELECT 
-            STRING_AGG(h.nome || ': ' || h.nivel, ', ') AS habilidade
+            STRING_AGG(h.nome || ' (' || h.nivel || ')', ', ') AS habilidade
         FROM 
             estuda e
         INNER JOIN 

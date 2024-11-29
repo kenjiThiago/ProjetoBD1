@@ -46,8 +46,10 @@ function populateTable(page, data, numberOfPages, size) {
 export async function createTable(urlParams) {
   const nameV = urlParams.has("vaga") ? urlParams.get("vaga") : ""
   const company = urlParams.has("empresa") ? urlParams.get("empresa") : ""
+  const localizacao = urlParams.has("localizacao") ? urlParams.get("localizacao") : ""
+  const requisito = urlParams.has("requisito") ? urlParams.get("requisito") : ""
 
-  const response = await fetch(`http://localhost:8000/vagas?nome=${nameV}&empresa=${company}`)
+  const response = await fetch(`http://localhost:8000/vagas?nome=${nameV}&empresa=${company}&localizacao=${localizacao}&requisitos=${requisito}`)
   const data = await response.json()
 
   const page = urlParams.get("page")
