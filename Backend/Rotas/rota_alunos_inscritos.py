@@ -110,7 +110,7 @@ def get_alunos_inscritos():
             "qualificado": aluno_qualificado
         })
 
-    habilidades_vaga_string = ", ".join([f"{h}: {habilidades_vaga[h]}" for h in habilidades_vaga])
+    habilidades_vaga_string = ", ".join([f"{h} ({habilidades_vaga[h]})" for h in habilidades_vaga])
 
     return jsonify({
         "vaga": {
