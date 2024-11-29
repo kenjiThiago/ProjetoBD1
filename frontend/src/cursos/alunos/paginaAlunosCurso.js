@@ -8,6 +8,7 @@ import { asideToggle } from "../../scripts/functionalities/header.js"
 import { createRemoveFilterButton } from "../../scripts/functionalities/removeFilters.js"
 import { inputFunctionality } from "./scriptsPaginaAlunosCurso/formInput.js"
 import { createTable } from "./scriptsPaginaAlunosCurso/tablePaginaAlunosCurso.js"
+import { createOrderingButton } from "../../scripts/functionalities/orderingButton.js"
 
 const aside = document.querySelector("#app aside")
 
@@ -24,3 +25,4 @@ form.innerHTML += `<input name="nomeC" value="${nameC}" hidden>`
 createRemoveFilterButton()
 inputFunctionality(urlParams)
 createTable(urlParams)
+createOrderingButton(urlParams)

@@ -10,8 +10,11 @@ def get_alunos_formados():
     nome_aluno = request.args.get("nome_aluno", "").strip()
     ano_inicio = request.args.get("ano_inicio", "").strip()
     ano_fim = request.args.get("ano_fim", "").strip()
-    ordenar_por = request.args.get("ordenar_por", "nome").strip()  
-    ordenar_ordem = request.args.get("ordenar_ordem", "ASC").strip().upper()  
+    ordenar_por = request.args.get("ordenar_por", "data_conclusao").strip()  
+    ordenar_ordem = request.args.get("ordenar_ordem", "").strip().upper()  
+
+    if not ano_inicio and not ano_fim:
+        ordenar_por = "nota"
 
     if not nome_curso:
         return jsonify({"error": "O nome do curso é obrigatório"}), 400

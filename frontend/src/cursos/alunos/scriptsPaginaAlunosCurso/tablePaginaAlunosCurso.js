@@ -45,9 +45,11 @@ function populateTable(page, data, numberOfPages, size) {
 export async function createTable(urlParams) {
   const nameC = urlParams.has("nomeC") ? urlParams.get("nomeC") : ""
   const nameA = urlParams.has("aluno") ? urlParams.get("aluno") : ""
-  const year = urlParams.has("ano_conclusao") ? urlParams.get("ano_conclusao") : ""
+  const year_start = urlParams.has("ano_conclusao") ? urlParams.get("ano_conclusao") : ""
+  const year_end = urlParams.has("ano_conclusao_ate") ? urlParams.get("ano_conclusao_ate") : ""
+  const ordering = urlParams.has("ordem") ? urlParams.get("ordem") : ""
 
-  const response = await fetch(`http://localhost:8000/alunos_formados?curso=${nameC}&nome_aluno=${nameA}&ano_conclusao=${year}`)
+  const response = await fetch(`http://localhost:8000/alunos_formados?curso=${nameC}&nome_aluno=${nameA}&ano_inicio=${year_start}&ano_fim=${year_end}&ordenar_ordem=${ordering}`)
   const data = await response.json()
 
   const mainH1 = document.querySelector("main h1")
