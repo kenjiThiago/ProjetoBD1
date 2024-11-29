@@ -4,6 +4,10 @@ from Database.classe_aluno import Aluno
 
 alunos_inscritos_blueprint = Blueprint("rota_alunos_inscritos", __name__)
 
+def comparar_niveis(nivel_aluno, nivel_vaga):
+    hierarquia = {"Básico": 1, "Intermediário": 2, "Avançado": 3}
+    return hierarquia.get(nivel_aluno, 0) >= hierarquia.get(nivel_vaga, 0)
+
 @alunos_inscritos_blueprint.route("/alunos_inscritos", methods=["GET"])
 def get_alunos_inscritos():
     id_vaga = request.args.get("id_vaga", "").strip()
@@ -88,7 +92,7 @@ def get_alunos_inscritos():
         aluno_qualificado = True
         for habilidade, nivel_vaga in habilidades_vaga.items():
             nivel_aluno = next((h['nivel'] for h in habilidades_aluno if h['nome'] == habilidade), None)
-            if nivel_aluno != nivel_vaga:
+            if not nivel_aluno or not comparar_niveis(nivel_aluno, nivel_vaga):
                 aluno_qualificado = False
                 break
 
