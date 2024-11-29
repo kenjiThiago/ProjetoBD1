@@ -668,8 +668,10 @@ INSERT INTO Professor (nome, email, especializacao) VALUES
 
 INSERT INTO Habilidade (id, nome, nivel) VALUES
 (1,             'JavaScript',               'Avançado'),
+(61,            'HTML/CSS',                 'Iniciante'),
 (2,             'HTML/CSS',                 'Intermediário'),
 (3,             'HTML/CSS',                 'Avançado'),
+(60,            'Node.js',                  'Intermediário'),
 (4,             'Node.js',                  'Avançado'),
 (5,             'Selenium',                 'Avançado'),
 (6,             'Kotlin',                   'Iniciante'),
@@ -811,6 +813,7 @@ INSERT INTO Habilidade_Curso (nome_curso, id_habilidade) VALUES
 ('Kubernetes na Prática',                   28),
 ('Introdução ao Ruby on Rails',             29),
 ('JavaScript Avançado',                     1),
+('JavaScript Avançado',                     60),
 ('Construção de APIs REST',                 30),
 ('Angular Básico',                          31),
 ('React Native para Mobile',                32),
@@ -829,6 +832,7 @@ INSERT INTO Habilidade_Curso (nome_curso, id_habilidade) VALUES
 ('Marketing Digital para Empresas',         44),
 ('Excel Avançado',                          23),
 ('PHP para Web',                            45),
+('PHP para Web',                            61),
 ('MongoDB na Prática',                      46),
 ('Programação Funcional com Scala',         47),
 ('Introdução ao C#',                        48),
@@ -1596,6 +1600,7 @@ WHERE
 
 INSERT INTO Habilidade_Vaga (id_vaga, id_habilidade) VALUES
 (1,     1),
+(1,     2),
 (2,     4),
 (3,     8),
 (4,     5),
