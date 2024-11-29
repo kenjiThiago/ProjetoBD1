@@ -15,7 +15,7 @@ def aluno_dashboard():
         return jsonify({"error": "Parâmetro 'email_aluno' é obrigatório"}), 400
 
     if ordem_nota not in ["ASC", "DESC"]:
-        return jsonify({"error": "Parâmetro 'ordem_nota' deve ser 'ASC' ou 'DESC'"}), 400
+        ordem_nota = "ASC"
 
     aluno_model = Aluno()
 
