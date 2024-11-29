@@ -41,10 +41,12 @@ export async function createTable(urlParams) {
   const email = urlParams.has("email_aluno") ? urlParams.get("email_aluno") : ""
   const level = urlParams.has("nivel") ? urlParams.get("nivel") : ""
   const idV = urlParams.has("id_vaga") ? urlParams.get("id_vaga") : ""
+  const skill = urlParams.has("habilidade") ? urlParams.get("habilidade") : ""
+  const ordering = urlParams.has("ordem") ? urlParams.get("ordem") : ""
 
   const emailUrl = email.replace("@", "%40")
 
-  const response = await fetch(`http://localhost:8000/cursos_necessarios?email_aluno=${emailUrl}&id_vaga=${idV}&nome_curso=${nameC}&nivel=${level}`)
+  const response = await fetch(`http://localhost:8000/cursos_necessarios?email_aluno=${emailUrl}&id_vaga=${idV}&nome_curso=${nameC}&nivel=${level}&habilidade=${skill}&ordenar_duracao=${ordering}`)
   const data = await response.json()
 
   const mainH1 = document.querySelector("main h1")

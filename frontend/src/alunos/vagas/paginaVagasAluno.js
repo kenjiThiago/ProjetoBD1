@@ -8,6 +8,7 @@ import { asideToggle } from "../../scripts/functionalities/header.js"
 import { createRemoveFilterButton } from "../../scripts/functionalities/removeFilters.js"
 import { inputFunctionality } from "./scriptsVagasAluno/formInput.js"
 import { createTable } from "./scriptsVagasAluno/tablePaginaVagasAluno.js"
+import { createOrderingButton } from "../../scripts/functionalities/orderingButton.js"
 
 const aside = document.querySelector("#app aside")
 
@@ -22,5 +23,6 @@ const form = document.querySelector("form")
 form.innerHTML += `<input name="email_aluno" value="${email}" hidden>`
 
 createRemoveFilterButton()
+createOrderingButton(urlParams)
 inputFunctionality(urlParams)
 createTable(urlParams)

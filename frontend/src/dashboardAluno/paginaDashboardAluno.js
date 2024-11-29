@@ -10,6 +10,7 @@ import { asideToggle } from "../scripts/functionalities/header.js"
 import { createRemoveFilterButton } from "../scripts/functionalities/removeFilters.js"
 import { createDashboard } from "./scriptsPaginaDashboardAluno/dashboard.js"
 import { inputFunctionality } from "./scriptsPaginaDashboardAluno/formInput.js"
+import { createOrderingButton } from "../scripts/functionalities/orderingButton.js"
 
 const aside = document.querySelector("#app aside")
 
@@ -23,7 +24,8 @@ const email = urlParams.has("email") ? urlParams.get("email") : ""
 const form = document.querySelector("form")
 form.innerHTML += `<input name="email" value="${email}" hidden>`
 
-createDashboard(urlParams)
-inputFunctionality(urlParams)
-
 createRemoveFilterButton()
+createOrderingButton(urlParams)
+
+inputFunctionality(urlParams)
+createDashboard(urlParams)

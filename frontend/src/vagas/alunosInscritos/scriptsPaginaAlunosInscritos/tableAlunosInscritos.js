@@ -21,14 +21,14 @@ function populateTable(page, data, numberOfPages, size) {
   const tableBody = document.querySelector("#content tbody")
 
   for (let i = (page - 1) * 10; i < size && i < 10 * page; i++) {
-    const habilits = data[i].habilidades.length !== 0 ? data[i].habilidades.join(", ") : "Nenhuma Habilidade"
+    const habilits = data[i].habilidades[0].habilidade !== "" ? data[i].habilidades[0].habilidade : "Nenhuma Habilidade"
     const row = `
       <tr data-href="/dashboardAluno/?email=${data[i].email}&page=1">
         <td>${data[i].nome}</td>
         <td>${data[i].email}</td>
         <td>${data[i].cursos_concluidos}</td>
         <td>${data[i].idade}</td>
-        <td>${habilits}</td>
+        <td style="text-align: left">${habilits}</td>
       </tr>
     `
 
@@ -59,8 +59,7 @@ export async function createTable(urlParams) {
   mainH2.innerHTML = data.vaga.descricao
 
   const mainH3 = document.querySelector("main h3")
-  const skills = data.vaga.requisitos.join(", ")
-  mainH3.innerHTML += ` ${skills}`
+  mainH3.innerHTML += ` ${data.vaga.requisitos[0].habilidade}`
 
   const page = urlParams.get("page")
   const size = data.alunos.length

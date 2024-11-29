@@ -3,8 +3,8 @@ export function inputFunctionality(urlParams) {
   const inputLocation = document.querySelector("form input[name='localizacao']")
 
   const nameC = urlParams.get("nome")
-  const location = urlParams.get("localizacao")
+  const locationC = urlParams.get("localizacao")
 
-  inputLocation.value = location !== null ? location : ""
+  inputLocation.value = locationC !== null ? locationC : ""
   inputCompany.value = nameC !== null ? nameC : ""
 }

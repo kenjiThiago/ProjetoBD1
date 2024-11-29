@@ -9,13 +9,14 @@ export async function createDashboard(urlParams) {
   const email = urlParams.has("email") ? urlParams.get("email") : ""
   const course = urlParams.has("curso") ? urlParams.get("curso") : ""
   const skill = urlParams.has("habilidade") ? urlParams.get("habilidade") : ""
+  const level = urlParams.has("nivel") ? urlParams.get("nivel") : ""
+  const ordering = urlParams.has("ordem") ? urlParams.get("ordem") : ""
 
   const emailUrl = email.replace("@", "%40")
 
-  const response = await fetch(`http://localhost:8000/dashboard?email_aluno=${emailUrl}&nome_curso=${course}&habilidade=${skill}`)
+  const response = await fetch(`http://localhost:8000/dashboard?email_aluno=${emailUrl}&nome_curso=${course}&habilidade=${skill}&nivel=${level}&ordem_nota=${ordering}`)
   const data = await response.json()
 
-  const skills = data.dashboard.habilidades_totais.length !== 0 ? data.dashboard.habilidades_totais.join(", ") : "Nenhuma Habilidade"
   const status = data.aluno.status_plano == "ativo" ? "Ativo" : "Inativo"
   const classStatus = data.aluno.status_plano == "ativo" ? "" : "inactive"
 
@@ -50,7 +51,7 @@ export async function createDashboard(urlParams) {
   `
 
   const skillList = document.querySelector("#list")
-  console.log(skillList)
+  skillList.innerHTML = data.dashboard.habilidades_totais.length !== 0 ? "" : "<p style='font-size: 2.6rem;'>Nenhuma Habilidade</p>"
   data.dashboard.habilidades_totais.forEach(habilidade => {
     skillList.innerHTML += `
       <li>${habilidade}</li>

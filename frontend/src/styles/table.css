@@ -131,6 +131,16 @@ main form button img {
     max-width: 40rem;
 }
 
+#order-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1rem;
+
+    cursor: pointer;
+}
+
 #content tbody td {
     max-width: 40rem;
     text-align: center;
