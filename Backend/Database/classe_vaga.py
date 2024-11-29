@@ -53,7 +53,7 @@ class Vaga():
         result = self.db.execute_select_one(query)
         return result['count']
     
-    def get_vagas_inscritas_por_aluno(self, email_aluno: str, vaga_nome: str = "", empresa_nome: str = "", vaga_id=None):
+    def get_vagas_inscritas_por_aluno(self, email_aluno: str, vaga_nome: str = "", empresa_nome: str = "", localizacao: str = "", requisitos: str = "", ordenar_por: str = "numero_inscritos", ordenar_ordem: str = "DESC"):
         aluno_query = f"""
         SELECT nome AS aluno_nome
         FROM aluno
@@ -95,11 +95,27 @@ class Vaga():
         if empresa_nome:
             vagas_query += f" AND LOWER(e.nome) LIKE '%{empresa_nome.lower()}%'"
         
-        vagas_query += """
+        if localizacao:
+            vagas_query += f" AND LOWER(e.localizacao) LIKE '%{localizacao.lower()}%'"
+        
+        if requisitos:
+            vagas_query += f"""
+            AND EXISTS (
+                SELECT 1
+                FROM habilidade_vaga hv
+                JOIN habilidade h ON hv.id_habilidade = h.id
+                WHERE hv.id_vaga = v.id 
+                AND LOWER(h.nome) LIKE '%{requisitos.lower()}%'
+            )
+            """
+
+        vagas_query += f"""
         GROUP BY 
             v.id, v.nome, e.nome, e.localizacao
+        ORDER BY 
+            {ordenar_por} {ordenar_ordem}
         """
-        
+
         vagas_inscritas = self.db.execute_select_all(vagas_query)
 
         habilidades_query = f"""
