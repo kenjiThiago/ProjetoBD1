@@ -1,10 +1,10 @@
 export function inputFunctionality(urlParams) {
   const inputName = document.querySelector("form input[name='nome']")
-  //const inputLocation = document.querySelector("form input[name='localizacao']")
+  const inputRequiriment = document.querySelector("form input[name='requisito']")
 
   const nameV = urlParams.get("nome")
-  //const location = urlParams.get("localizacao")
+  const requiriment = urlParams.get("requisito")
 
   inputName.value = nameV !== null ? nameV : ""
-  //inputLocation.value = location !== null ? location : ""
+  inputRequiriment.value = requiriment !== null ? requiriment : ""
 }
