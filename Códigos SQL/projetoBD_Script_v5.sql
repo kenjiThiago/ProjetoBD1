@@ -638,11 +638,7 @@ INSERT INTO Aluno (email, nome, data_nascimento, status_plano) VALUES
 ('alícia.almeida@gmail.com', 'Alícia Almeida', '1974-07-24', 'inativo'),
 ('isabella.cardoso@gmail.com', 'Isabella Cardoso', '1975-08-02', 'ativo'),
 ('júlia.caldeira@gmail.com', 'Júlia Caldeira', '1980-11-05', 'ativo'),
-('stephany.da.mota@gmail.com', 'Stephany da Mota', '1982-06-19', 'ativo'),
-('sabrina.nogueira@gmail.com', 'Sabrina Nogueira', '1984-12-06', 'ativo'),
-('felipe.rodrigues@gmail.com', 'Felipe Rodrigues', '1982-05-27', 'ativo'),
-('eduardo.gomes@gmail.com', 'Eduardo Gomes', '1982-01-09', 'ativo'),
-('ana.laura.azevedo@gmail.com', 'Ana Laura Azevedo', '1984-10-11', 'ativo');
+('stephany.da.mota@gmail.com', 'Stephany da Mota', '1982-06-19', 'ativo');
 
 INSERT INTO Professor (nome, email, especializacao) VALUES
 ('Marcos Silva',        'marcossilva@gmail.com',        'Desenvolvimento Web'),
@@ -1636,3 +1632,31 @@ INSERT INTO Habilidade_Vaga (id_vaga, id_habilidade) VALUES
 (29,    26),
 (30,    50),
 (30,    48);
+
+-- Vaga "Desenvolvedor Front-end" (id=1) pede JavaScript Avançado (id=1) e HTML/CSS Intermediário (id=2),
+-- Ou seja, para um aluno ser qualificado ele precisa ter JavaScript Avançado e HTML/CSS Intermediário ou Avançado.
+-- O curso "Desenvolvimento Web Completo" oferece JavaScript, Node.js e HTML/CSS avançados, já cumprindo todos requisitos pra vaga.
+-- O curso "JavaScript Avançado" oferece JavaScript e Node.js avançados, cumprindo parte requisitos pra vaga.
+-- O curso "UX/UI Design na Prática" oferece UX/UI e HTML/CSS intermediários, cumprindo parte requisitos pra vaga.
+-- O curso "PHP para Web" oferece HTML/CSS iniciante, não cumprindo nenhum requisito para vaga.
+-- Portanto um aluno é qualificado para essa vaga se tiver feito o curso "Desenvolvimento Web Completo", ou "JavaScript Avançado" + "UX/UI Design na Prática", ou os três. 
+
+INSERT INTO Aluno (email, nome, data_nascimento, status_plano) VALUES
+('sabrina.nogueira@gmail.com', 'Sabrina Nogueira', '1984-12-06', 'ativo'),
+('felipe.rodrigues@gmail.com', 'Felipe Rodrigues', '1982-05-27', 'ativo'),
+('eduardo.gomes@gmail.com', 'Eduardo Gomes', '1982-01-09', 'ativo'),
+('ana.laura.azevedo@gmail.com', 'Ana Laura Azevedo', '1984-10-11', 'ativo');
+
+INSERT INTO Se_Inscreve (email_aluno, id_vaga) VALUES
+('sabrina.nogueira@gmail.com', 1),
+('felipe.rodrigues@gmail.com', 1),
+('eduardo.gomes@gmail.com', 1),
+('ana.laura.azevedo@gmail.com', 1);
+
+INSERT INTO Estuda (email_aluno, nome_curso, data_conclusao, nota) VALUES
+('sabrina.nogueira@gmail.com', 'Desenvolvimento Web Completo', '2022-12-31', 10), --Qualificado
+('felipe.rodrigues@gmail.com', 'JavaScript Avançado', '2022-12-31', 10), --Qualificado
+('felipe.rodrigues@gmail.com', 'UX/UI Design na Prática', '2022-12-31', 10),
+('eduardo.gomes@gmail.com', 'JavaScript Avançado', '2022-12-31', 10),  --Não Qualificado
+('eduardo.gomes@gmail.com', 'PHP para Web', '2022-12-31', 10),
+('ana.laura.azevedo@gmail.com', 'UX/UI Design na Prática', '2022-12-31', 10); --Não Qualificado
