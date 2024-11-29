@@ -4,7 +4,7 @@ class Vaga():
     def __init__(self, db_provider=DatabaseManager()) -> None:
         self.db = db_provider
 
-    def get_vagas(self, id: int = None, nome: str = "", empresa: str = ""):
+    def get_vagas(self, id: int = None, nome: str = "", empresa: str = "", requisitos: str = "", ordenar_por: str = "numero_inscritos", ordenar_ordem: str = "DESC"):
         query = """
         SELECT 
             v.id,
@@ -27,25 +27,35 @@ class Vaga():
         """
         
         filtros = []
-        
+
         if id is not None:
             filtros.append(f"v.id = {id}")
         if nome:
             filtros.append(f"LOWER(v.nome) LIKE '%{nome.lower()}%'")
         if empresa:
-            filtros.append(f"LOWER(e.nome) LIKE '%{empresa.lower()}%'")  
-        
+            filtros.append(f"LOWER(e.nome) LIKE '%{empresa.lower()}%'")
+        if requisitos:
+            filtros.append(f"""
+            EXISTS (
+                SELECT 1 
+                FROM habilidade_vaga hv
+                JOIN habilidade h ON hv.id_habilidade = h.id
+                WHERE hv.id_vaga = v.id AND LOWER(h.nome) LIKE '%{requisitos.lower()}%'
+            )
+            """)
+
         if filtros:
             query += " WHERE " + " AND ".join(filtros)
-        
+
         query += """
         GROUP BY 
-            v.id, v.nome, v.descricao, e.localizacao, e.nome  
+            v.id, v.nome, v.descricao, e.localizacao, e.nome
         ORDER BY 
-            v.nome ASC  
-        """
-        
+            {ordenar_por} {ordenar_ordem}  
+        """.format(ordenar_por=ordenar_por, ordenar_ordem=ordenar_ordem)
+
         return self.db.execute_select_all(query)
+
 
 
     def get_numero_vagas(self) -> int:
