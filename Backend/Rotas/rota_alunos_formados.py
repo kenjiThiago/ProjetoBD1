@@ -8,7 +8,10 @@ alunos_formados_blueprint = Blueprint("rota_alunos_formados", __name__)
 def get_alunos_formados():
     nome_curso = request.args.get("curso", "").strip()
     nome_aluno = request.args.get("nome_aluno", "").strip()
-    ano_conclusao = request.args.get("ano_conclusao", "").strip()
+    ano_inicio = request.args.get("ano_inicio", "").strip()
+    ano_fim = request.args.get("ano_fim", "").strip()
+    ordenar_por = request.args.get("ordenar_por", "nome").strip()  
+    ordenar_ordem = request.args.get("ordenar_ordem", "ASC").strip().upper()  
 
     if not nome_curso:
         return jsonify({"error": "O nome do curso é obrigatório"}), 400
@@ -37,6 +40,16 @@ def get_alunos_formados():
     except Exception as e:
         return jsonify({"error": f"Erro ao buscar habilidades: {str(e)}"}), 500
 
+    ordenar_por_mapping = {
+        "nome": "a.nome",
+        "nota": "e.nota",
+        "data_conclusao": "e.data_conclusao"
+    }
+    
+    coluna_ordenar = ordenar_por_mapping.get(ordenar_por, "a.nome")
+    if ordenar_ordem not in ["ASC", "DESC"]:
+        ordenar_ordem = "ASC"
+
     query = f"""
     SELECT 
         a.nome AS aluno_nome,
@@ -51,12 +64,15 @@ def get_alunos_formados():
         e.nome_curso = '{nome_curso}'
         AND e.data_conclusao IS NOT NULL
     """
+    
     if nome_aluno:
         query += f" AND LOWER(a.nome) LIKE '%{nome_aluno.lower()}%'"
-    if ano_conclusao:
-        query += f" AND EXTRACT(YEAR FROM e.data_conclusao) = {ano_conclusao}"
+    if ano_inicio:
+        query += f" AND EXTRACT(YEAR FROM e.data_conclusao) >= {ano_inicio}"
+    if ano_fim:
+        query += f" AND EXTRACT(YEAR FROM e.data_conclusao) <= {ano_fim}"
 
-    query += " ORDER BY a.nome ASC"
+    query += f" ORDER BY {coluna_ordenar} {ordenar_ordem}"
 
     try:
         alunos = aluno_model.db.execute_select_all(query)
