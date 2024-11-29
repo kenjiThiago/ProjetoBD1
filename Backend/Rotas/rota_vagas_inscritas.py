@@ -12,13 +12,15 @@ def get_vagas_inscritas():
     requisitos = request.args.get("requisitos", "").strip()
     
     ordenar_por = request.args.get("ordenar_por", "numero_inscritos").strip()  # Padrão é 'numero_inscritos'
-    ordenar_ordem = request.args.get("ordenar_ordem", "DESC").strip()  # Padrão é 'DESC'
+    ordenar_ordem = request.args.get("ordenar_ordem", "").strip()  # Padrão é 'DESC'
 
     if not email_aluno:
         return jsonify({"error": "O email_aluno do aluno é obrigatório"}), 400
 
-    if ordenar_ordem not in ["ASC", "DESC"]:
-        return jsonify({"error": "Valor inválido para 'ordenar_ordem'. Use 'ASC' ou 'DESC'."}), 400
+    if ordenar_ordem not in ["asc", "desc"]:
+        ordenar_ordem = "asc"
+
+    print(ordenar_ordem)
 
     vaga_model = Vaga()
 

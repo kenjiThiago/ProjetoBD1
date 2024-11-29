@@ -52,7 +52,7 @@ export async function createTable(urlParams) {
   const requiriment = urlParams.has("requisito") ? urlParams.get("requisito") : ""
   const ordering = urlParams.has("ordem") ? urlParams.get("ordem") : ""
 
-  const response = await fetch(`http://localhost:8000/vagas_inscritas?email_aluno=${email}&vaga_nome=${nameV}&empresa_nome=${company}&requisitos=${requiriment}&localizacao=${locationV}&ordenar_numero_inscritos=${ordering}`)
+  const response = await fetch(`http://localhost:8000/vagas_inscritas?email_aluno=${email}&vaga_nome=${nameV}&empresa_nome=${company}&requisitos=${requiriment}&localizacao=${locationV}&ordenar_ordem=${ordering}`)
   const data = await response.json()
 
   const mainH1 = document.querySelector("main h1")
