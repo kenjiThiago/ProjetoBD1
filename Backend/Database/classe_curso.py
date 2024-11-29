@@ -4,7 +4,7 @@ class Curso():
     def __init__(self, db_provider = DatabaseManager()) -> None:
         self.db = db_provider
     
-    def get_cursos(self, nome: str = "", duracao: int = None, nivel: str = ""):
+    def get_cursos(self, nome: str = "", duracao: int = None, nivel: str = "", habilidade: str = ""):
         query = """
         SELECT 
             c.nome,
@@ -34,6 +34,18 @@ class Curso():
         
         if nivel:
             filtros.append(f"LOWER(c.nivel) = '{nivel.lower()}'")
+
+        if habilidade:
+            filtros.append(f"""
+            EXISTS (
+                SELECT 1
+                FROM habilidade_curso hc
+                JOIN habilidade h ON hc.id_habilidade = h.id
+                WHERE hc.nome_curso = c.nome
+                AND LOWER(h.nome) LIKE '%{habilidade.lower()}%'
+            )
+            """
+          )
         
         if filtros:
             query += " WHERE " + " AND ".join(filtros)

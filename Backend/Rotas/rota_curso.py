@@ -8,11 +8,12 @@ def get_cursos():
     nome = request.args.get("nome", "")
     duracao = request.args.get("duracao", None)
     nivel = request.args.get("nivel", "")
+    habilidade = request.args.get("habilidade", "")
     
     duracao = int(duracao) if duracao else None
 
     curso_model = Curso()
-    cursos = curso_model.get_cursos(nome, duracao, nivel)
+    cursos = curso_model.get_cursos(nome, duracao, nivel, habilidade)
     total_cursos = curso_model.get_numero_cursos()
 
     response_data = {
