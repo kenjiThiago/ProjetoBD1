@@ -11,6 +11,8 @@ def get_cursos_necessarios():
     id_vaga = request.args.get("id_vaga", "").strip()
     nivel = request.args.get("nivel", "").strip()
     nome_curso = request.args.get("nome_curso", "").strip()
+    habilidade_filtro = request.args.get("habilidade", "").strip()  
+    ordenar_duracao = request.args.get("ordenar_duracao", "").strip()  
 
     if not email_aluno or not id_vaga:
         return jsonify({"error": "Parâmetros 'email_aluno' e 'id_vaga' são obrigatórios"}), 400
@@ -23,7 +25,7 @@ def get_cursos_necessarios():
     if not vaga:
         return jsonify({"error": "Vaga não encontrada"}), 404
 
-    vaga = vaga[0]  
+    vaga = vaga[0]
 
     query_habilidades_vaga = f"""
     SELECT DISTINCT h.nome AS habilidade, h.nivel
@@ -99,10 +101,22 @@ def get_cursos_necessarios():
     if nome_curso:
         query_cursos_sugeridos += f" AND LOWER(c.nome) LIKE '%{nome_curso.lower()}%'"
 
+    if habilidade_filtro:
+        query_cursos_sugeridos += f" AND LOWER(h.nome) LIKE '%{habilidade_filtro.lower()}%'"
+
     query_cursos_sugeridos += """
         ) AS subquery
-        ORDER BY subquery.nome ASC
     """
+
+    if ordenar_duracao:
+        if ordenar_duracao.lower() == 'asc':
+            query_cursos_sugeridos += " ORDER BY subquery.duracao ASC"
+        elif ordenar_duracao.lower() == 'desc':
+            query_cursos_sugeridos += " ORDER BY subquery.duracao DESC"
+        else:
+            return jsonify({"error": "Valor inválido para ordenar_duracao. Use 'asc' ou 'desc'."}), 400
+    else:
+        query_cursos_sugeridos += " ORDER BY subquery.nome ASC"  
 
     cursos_sugeridos = curso_model.db.execute_select_all(query_cursos_sugeridos)
 
