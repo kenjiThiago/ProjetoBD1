@@ -120,15 +120,19 @@ def get_cursos_necessarios():
 
     cursos_sugeridos = curso_model.db.execute_select_all(query_cursos_sugeridos)
 
-    cursos_formatados = [
-        {
+    cursos_formatados = []
+    for curso in cursos_sugeridos:
+        curso_nivel = curso["nivel"]
+        cursos_formatados.append({
             "nome": curso["nome"],
             "nivel": curso["nivel"],
             "duracao": curso["duracao"],
             "data_lancamento": curso["data_lancamento"],
             "habilidade": f"{curso['habilidade']}: {curso['nivel']}"  
-        }
-        for curso in cursos_sugeridos
+        })
+
+    cursos_formatados = [
+        curso for curso in cursos_formatados if nivel_ordem[curso["nivel"]] >= nivel_ordem[habilidades_vaga[0]["nivel"]]
     ]
 
     return jsonify({
