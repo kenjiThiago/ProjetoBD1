@@ -23,13 +23,13 @@ def get_alunos_inscritos():
     vaga = vaga[0]  
 
     query_habilidades_vaga = f"""
-    SELECT h.nome
+    SELECT h.nome, h.nivel
     FROM habilidade_vaga hv
     JOIN habilidade h ON hv.id_habilidade = h.id
     WHERE hv.id_vaga = {id_vaga}
     """
     habilidades_vaga = vaga_model.db.execute_select_all(query_habilidades_vaga)
-    habilidades_vaga = [h["nome"] for h in habilidades_vaga]
+    habilidades_vaga = {h["nome"]: h["nivel"] for h in habilidades_vaga}
 
     query_alunos_inscritos = f"""
     SELECT 
@@ -75,17 +75,22 @@ def get_alunos_inscritos():
 
         
         query_habilidades_aluno = f"""
-        SELECT DISTINCT h.nome
+        SELECT DISTINCT h.nome, h.nivel
         FROM habilidade_curso hc
         JOIN habilidade h ON hc.id_habilidade = h.id
         INNER JOIN estuda e ON hc.nome_curso = e.nome_curso
         WHERE e.email_aluno = '{aluno["email"]}'
         """
         habilidades_aluno = aluno_model.db.execute_select_all(query_habilidades_aluno)
-        habilidades_aluno = [h["nome"] for h in habilidades_aluno]
-
         
-        aluno_qualificado = all(h in habilidades_aluno for h in habilidades_vaga)
+        habilidades_string = ", ".join([f"{h['nome']}: {h['nivel']}" for h in habilidades_aluno])
+
+        aluno_qualificado = True
+        for habilidade, nivel_vaga in habilidades_vaga.items():
+            nivel_aluno = next((h['nivel'] for h in habilidades_aluno if h['nome'] == habilidade), None)
+            if nivel_aluno != nivel_vaga:
+                aluno_qualificado = False
+                break
 
         if filtro_qualificacao == "qualificados" and not aluno_qualificado:
             continue
@@ -97,16 +102,18 @@ def get_alunos_inscritos():
             "email": aluno["email"],
             "idade": idade,
             "cursos_concluidos": numero_cursos_concluidos,  
-            "habilidades": habilidades_aluno,
+            "habilidades": [{"habilidade": habilidades_string}],
             "qualificado": aluno_qualificado
         })
+
+    habilidades_vaga_string = ", ".join([f"{h}: {habilidades_vaga[h]}" for h in habilidades_vaga])
 
     return jsonify({
         "vaga": {
             "id": vaga["id"],
             "nome": vaga["vaga_nome"],
             "descricao": vaga["descricao"],
-            "requisitos": habilidades_vaga
+            "requisitos": [{"habilidade": habilidades_vaga_string}]
         },
         "alunos": alunos_detalhes
     }), 200

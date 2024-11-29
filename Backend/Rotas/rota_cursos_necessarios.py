@@ -25,34 +25,40 @@ def get_cursos_necessarios():
 
     vaga = vaga[0]  
 
+    # Consultando as habilidades e os níveis necessários para a vaga
     query_habilidades_vaga = f"""
-    SELECT DISTINCT habilidade
-    FROM habilidade_vaga
-    WHERE id_vaga = {id_vaga}
+    SELECT DISTINCT h.nome AS habilidade, h.nivel
+    FROM habilidade_vaga hv
+    INNER JOIN habilidade h ON hv.id_habilidade = h.id
+    WHERE hv.id_vaga = {id_vaga}
     """
     habilidades_vaga = vaga_model.db.execute_select_all(query_habilidades_vaga)
-    habilidades_vaga = [h["habilidade"] for h in habilidades_vaga]
+    habilidades_vaga = [f"{h['habilidade']}: {h['nivel']}" for h in habilidades_vaga]
 
+    # Consultando as habilidades do aluno
     query_habilidades_aluno = f"""
-    SELECT DISTINCT hc.habilidade
+    SELECT DISTINCT h.nome AS habilidade, h.nivel
     FROM habilidade_curso hc
     INNER JOIN estuda e ON hc.nome_curso = e.nome_curso
+    INNER JOIN habilidade h ON hc.id_habilidade = h.id
     WHERE e.email_aluno = '{email_aluno}'
     """
     habilidades_aluno = aluno_model.db.execute_select_all(query_habilidades_aluno)
-    habilidades_aluno = [h["habilidade"] for h in habilidades_aluno]
+    habilidades_aluno = [f"{h['habilidade']}: {h['nivel']}" for h in habilidades_aluno]
 
-    habilidades_faltantes = [h for h in habilidades_vaga if h not in habilidades_aluno]
+    habilidades_faltantes = [h for h in habilidades_vaga if f"{h.split(':')[0]}: {h.split(':')[1]}" not in habilidades_aluno]
 
     if not habilidades_faltantes:
         return jsonify({
             "vaga": {"id": vaga["id"], "nome": vaga["vaga_nome"]},
             "habilidades_faltantes": [],
+            "habilidades_que_o_aluno_ja_tem": habilidades_aluno,
             "cursos_sugeridos": []
         }), 200
 
-    habilidades_str = "', '".join(habilidades_faltantes)
+    habilidades_str = "', '".join([h.split(":")[0] for h in habilidades_faltantes])
 
+    # Consultando os cursos sugeridos com base nas habilidades faltantes
     query_cursos_sugeridos = f"""
         SELECT 
             subquery.nome,
@@ -66,11 +72,11 @@ def get_cursos_necessarios():
                 c.nivel,
                 c.duracao,
                 TO_CHAR(c.data_lancamento, 'DD/MM/YYYY') AS data_lancamento,
-                hc.habilidade
+                h.nome AS habilidade
             FROM curso c
-            INNER JOIN habilidade_curso hc 
-            ON c.nome = hc.nome_curso
-            WHERE hc.habilidade IN ('{habilidades_str}')
+            INNER JOIN habilidade_curso hc ON c.nome = hc.nome_curso
+            INNER JOIN habilidade h ON hc.id_habilidade = h.id
+            WHERE h.nome IN ('{habilidades_str}')
     """
 
     if nivel:
@@ -92,7 +98,7 @@ def get_cursos_necessarios():
             "nivel": curso["nivel"],
             "duracao": curso["duracao"],
             "data_lancamento": curso["data_lancamento"],
-            "habilidade": curso["habilidade"]
+            "habilidade": f"{curso['habilidade']}: {curso['nivel']}"  # Formato de habilidade
         }
         for curso in cursos_sugeridos
     ]
@@ -100,8 +106,10 @@ def get_cursos_necessarios():
     return jsonify({
         "vaga": {
             "id": vaga["id"],
-            "nome": vaga["vaga_nome"]
+            "nome": vaga["vaga_nome"],
+            "habilidades_necessarias": habilidades_vaga  # As habilidades com o formato desejado
         },
         "habilidades_faltantes": habilidades_faltantes,
+        "habilidades_que_o_aluno_ja_tem": habilidades_aluno,
         "cursos_sugeridos": cursos_formatados
     }), 200

@@ -119,6 +119,6 @@ class Vaga():
 
         return {
             "aluno_nome": aluno_nome,
-            "vagas_inscritas": vagas_inscritas,
-            "habilidades_aluno": [{"habilidade": habilidades_aluno[0]['habilidade']}]  
+            "habilidades_aluno": [{"habilidade": habilidades_aluno[0]['habilidade']}],
+            "vagas_inscritas": vagas_inscritas if vagas_inscritas else []  
         }

@@ -14,16 +14,13 @@ def get_vagas_inscritas():
 
     vaga_model = Vaga()
 
-    vagas = vaga_model.get_vagas(nome=vaga_nome, empresa=empresa_nome)
-
-    if not vagas:
-        return jsonify({"vagas_inscritas": []}), 200
-
-    vaga_id = vagas[0]['id']  
-
-    dados = vaga_model.get_vagas_inscritas_por_aluno(email_aluno, vaga_nome, empresa_nome, vaga_id)
+    dados = vaga_model.get_vagas_inscritas_por_aluno(email_aluno, vaga_nome, empresa_nome)
 
     if not dados or 'vagas_inscritas' not in dados:
-        dados = {'vagas_inscritas': []}
+        dados = {
+            "aluno_nome": dados.get("aluno_nome", ""),
+            "habilidades_aluno": dados.get("habilidades_aluno", []),
+            "vagas_inscritas": []
+        }
 
     return jsonify(dados), 200
