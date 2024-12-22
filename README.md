@@ -123,6 +123,7 @@ $ npm run build
 
 ```sh
 $ npm run preview
+```
 
 
 * Para entrar no frontend acesse o http://localhost:4173/
