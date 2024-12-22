@@ -65,7 +65,7 @@ No arquivo **`ProjetoBD1\Backend\Database\conector.py`**, atualize os seguintes 
 
 **2\. Criando o Ambiente Virtual em python (venv)**
 
-* No diretório **`ProjetoBD1\Backend`**, rode o comando:
+* Execute o comando:
 
 ```sh
 $ python -m venv venv
@@ -73,7 +73,7 @@ $ python -m venv venv
 
 **3\. Iniciando o venv**
 
-*  Comando para iniciar o venv:
+* Rode o comando para iniciar o venv:
 
 ```sh
 $ .\venv\Scripts\activate
@@ -82,7 +82,7 @@ $ .\venv\Scripts\activate
 
 **4\. Instalando as Dependências para o Backend**
 
-* No diretório **`ProjetoBD1\Backend`**, execute o comando:
+* Execute o comando:
 
 ```sh
 $ pip install -r requirements.txt
@@ -91,7 +91,7 @@ Isso irá instalar todas as dependências listadas no arquivo **`requirements.tx
 
 **5\. Rodando o Servidor Backend**
 
-* Comando para rodar o servidor backend:
+* Execute o comando para rodar o servidor backend:
 
 ```sh
 $ python main.py
@@ -105,7 +105,7 @@ $ python main.py
 
 **2\. Instalando Dependências para Rodar o Frontend**
 
-* Comando para instalar as dependências do frontend:
+* Rode o comando para instalar as dependências do frontend:
 
 ```sh
 $ npm install
@@ -113,7 +113,7 @@ $ npm install
 
 **3\. Rodando o Frontend**
 
-* Comando para o build dos arquivos do frontend.
+* Execute o comando para o build dos arquivos do frontend.
 
 ```sh
 $ npm run build
