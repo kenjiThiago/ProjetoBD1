@@ -65,36 +65,64 @@ No arquivo **`ProjetoBD1\Backend\Database\conector.py`**, atualize os seguintes 
 
 **2\. Criando o Ambiente Virtual em python (venv)**
 
-* No diretório **`ProjetoBD1\Backend`**, rode o comando `python -m venv venv`**.** Esse comando irá criar um subdiretório no diretório Backend chamado venv.
+* No diretório **`ProjetoBD1\Backend`**, rode o comando:
+
+```sh
+$ python -m venv venv
+```
 
 **3\. Iniciando o venv**
 
-* Execute o comando **`.\venv\Scripts\activate`** no terminal.  
+*  Comando para iniciar o venv:
+
+```sh
+$ .\venv\Scripts\activate
+```
 * Após executar o comando, um indicador **`(venv)`** aparecerá no início da linha do terminal, confirmando que o ambiente virtual do Python foi ativado.
 
 **4\. Instalando as Dependências para o Backend**
 
-* No diretório **`ProjetoBD1\Backend`**, execute o comando `pip install -r requirements.txt` para instalar todas as dependências listadas no arquivo **`requirements.txt`**, necessárias para rodar o backend.
+* No diretório **`ProjetoBD1\Backend`**, execute o comando:
+
+```sh
+$ pip install -r requirements.txt
+```
+Isso irá instalar todas as dependências listadas no arquivo **`requirements.txt`**.
 
 **5\. Rodando o Servidor Backend**
 
-* Execute o comando **`python main.py`** para rodar o servidor backend.
+* Comando para rodar o servidor backend:
+
+```sh
+$ python main.py
+```
 
 ### **Frontend**
 
 **1\. Primeiros Passos**
 
-* Abra um novo terminal e navegue até o diretório **`frontend`**.  
-  **Importante:** Não feche o terminal onde o servidor backend está rodando.
+* Abra um novo terminal e navegue até o diretório **`frontend`**.
 
 **2\. Instalando Dependências para Rodar o Frontend**
 
-* No diretório **`frontend`**, execute o comando `npm install` para instalar todas as dependências necessárias para rodar o frontend.
+* Comando para instalar as dependências do frontend:
+
+```sh
+$ npm install
+```
 
 **3\. Rodando o Frontend**
 
-* Execute o comando `npm run build` para realizar o build dos arquivos do frontend.
+* Comando para o build dos arquivos do frontend.
 
-* Após o build, execute o comando `npm run preview` para iniciar o servidor do frontend.
+```sh
+$ npm run build
+```
+
+* Após o build, execute o comando para iniciar o servidor do frontend.
+
+```sh
+$ npm run preview
+
 
 * Para entrar no frontend acesse o http://localhost:4173/
