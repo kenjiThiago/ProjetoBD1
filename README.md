@@ -1,41 +1,39 @@
-**README para rodar o Projeto de BD1**
+# **Projeto de BD1**
 
-**Github do projeto: [kenjiThiago/ProjetoBD1](https://github.com/kenjiThiago/ProjetoBD1)**
+## **Requisitos**
 
-**Requisitos**
-
-**Backend:**
+### **Backend:**
 
 * **Python:** 3.12.7  
   * **Nota:** No Windows, pode ser necessário instalar o *Microsoft C++ Build Tools*, pois o Python depende de suporte para compilar alguns componentes em C.
 
-**Frontend:**
+### **Frontend:**
 
 * **Node.js:** 22.11.0  
 * **NPM:** 10.9.0
 
-**Banco de Dados:**
+### **Banco de Dados:**
 
 * **PostgreSQL:** 16.6
 
-**Opcional:**
+### **Opcional:**
 
 * **Git:** Qualquer versão recente, caso precise clonar o repositório do projeto no GitHub.
 
 **Observação:** Estas são as versões utilizadas durante o desenvolvimento e teste do projeto. Outras versões podem funcionar, mas não foram verificadas.
 
-**Etapas para rodar o projeto**
+## **Etapas para rodar o projeto**
 
-**Windows**
+### **Windows**
 
 **Importante:**  
 Para evitar problemas ao utilizar o ambiente virtual do Python, prefira usar o **Prompt de Comando (cmd)** em vez do **PowerShell**. No PowerShell, configurações adicionais são necessárias para executar o ambiente virtual do Python, enquanto no cmd isso não é necessário.
 
-**Linux**
+### **Linux**
 
 Para rodar no Linux, basta substituir o comando da etapa 3 do backend. Ao invés de usar `.\venv\Scripts\activate`, utilize `source .venv/bin/activate` para ativar o ambiente virtual.
 
-**SQL**
+### **SQL**
 
 O script SQL usado para gerar o banco de dados do projeto está localizado no diretório **“Códigos SQL”**.
 
@@ -55,7 +53,7 @@ No arquivo **`ProjetoBD1\Backend\Database\conector.py`**, atualize os seguintes 
 * **`password`**: Substitua pela senha que você utiliza no PostgreSQL.  
 * **`dbname`**: Substitua pelo nome do banco de dados que você criou.
 
-**Backend**
+### **Backend**
 
 **1\. Acessar o Diretório do Backend**
 
@@ -78,7 +76,7 @@ No arquivo **`ProjetoBD1\Backend\Database\conector.py`**, atualize os seguintes 
 
 * Execute o comando **`python main.py`** para rodar o servidor backend.
 
-**Frontend**
+### **Frontend**
 
 **1\. Primeiros Passos**
 
