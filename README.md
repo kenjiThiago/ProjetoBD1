@@ -31,7 +31,11 @@ Para evitar problemas ao utilizar o ambiente virtual do Python, prefira usar o *
 
 ### **Linux**
 
-Para rodar no Linux, basta substituir o comando da etapa 3 do backend. Ao invés de usar `.\venv\Scripts\activate`, utilize `source .venv/bin/activate` para ativar o ambiente virtual.
+Para rodar no Linux, basta substituir o comando da etapa 3 do backend por:
+
+```sh
+$ source venv/bin/activate
+```
 
 ### **SQL**
 
