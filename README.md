@@ -1,6 +1,6 @@
 # **Projeto de BD1**
 
-![Página Inicial](https://github.com/kenjiThiago/ProjetoBD1/tree/main/imagens/paginaInicial.png)
+![Página Inicial](https://github.com/kenjiThiago/ProjetoBD1/blob/main/imagens/paginaInicial.png)
 
 ## **Requisitos**
 
