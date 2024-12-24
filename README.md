@@ -53,7 +53,7 @@ O script SQL usado para gerar o banco de dados do projeto está localizado no di
 **1. Criar o Banco de Dados**
 
 - Acesse o **pgAdmin** (ou outra interface gráfica do PostgreSQL) e crie um novo banco de dados.  
-- Abra o diretório **"Códigos SQL"** no projeto e execute o script projetoBD_`Script.sql` para criar o banco de dados com todas as tabelas e dados necessários.
+- Abra o diretório **"Códigos SQL"** no projeto e execute o script projetoBD\\`Script.sql` para criar o banco de dados com todas as tabelas e dados necessários.
 
 
 **Importante**
